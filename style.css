@@ -108,12 +108,17 @@ body {
 .logo {
   color: #ffcc00;
 }
+.sub-title {
+  font-weight: 600;
+  font-size: 18px;
+}
 
 .navbar a:hover {
   background-color: #fff;
   color: #202020;
   border-radius: 5px;
 }
+
 /* ////////// ===>>       Scrolled Navbar        <<=== \\\\\\\\\\ */
 .navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
@@ -195,6 +200,17 @@ body {
 
 .dropbtn:hover .dropbtn-main {
   color: #202020;
+}
+/* Current hover (only affects container) */
+.dropbtn:hover {
+  background-color: #fff;
+  color: #202020;
+  border-radius: 5px;
+}
+
+/* Add this to ensure text color changes on hover */
+.dropbtn:hover span {
+  color: #202020; /* Force text color change on hover */
 }
 /* ////////// ===>>        Drop Down       <<=== \\\\\\\\\\ */
 
@@ -696,3 +712,89 @@ body {
   }
 }
 /* ////////// ===>>          Footer         <<=== \\\\\\\\\\ */
+
+/* ////////// ===>>        ThemeSwitch        <<=== \\\\\\\\\\ */
+.alternate-theme {
+  /* Main background/text (adjust colors as needed) */
+  --primary-bg: #160303be; /* Deep burgundy */
+  --secondary-bg: #fff;
+  --primary-text: #fa7705; /* Cream */
+  --accent: #aed167; /* Soft green */
+  --text-xl: 1.25rem; /* 20px */
+}
+
+/* Navbar */
+.alternate-theme .navbar.scrolled {
+  background: rgba(22, 3, 3, 0.7) !important;
+}
+.alternate-theme,
+.alternate-theme .accent {
+  color: var(--accent) !important;
+  font-weight: bold !important;
+}
+.alternate-theme .thema:hover {
+  background: var(--secondary-bg) !important;
+  color: var(--primary-bg) !important;
+}
+.alternate-theme .thema {
+  background: var(--accent) !important;
+}
+/* Cards */
+.alternate-theme .card-link {
+  background: rgba(22, 3, 3, 0.7) !important;
+}
+.alternate-theme,
+.card-link:hover {
+  background: rgba(22, 3, 3, 0.7) !important;
+  border: 1px solid var(--accent) !important;
+}
+
+.alternate-theme .badge {
+  background: var(--accent) !important;
+  color: var(--primary-bg) !important;
+}
+
+.alternate-theme .card-button {
+  color: var(--primary-bg) !important;
+}
+.alternate-theme .swiper-slide-button {
+  color: var(--accent) !important;
+}
+.alternate-theme .swiper-pagination-bullet {
+  background-color: var(--accent) !important;
+}
+/* Testimonials */
+.alternate-theme .highlight-card {
+  background: rgba(22, 3, 3, 0.7) !important;
+  border-left: 4px solid var(--accent) !important;
+}
+
+.alternate-theme .section-title,
+.alternate-theme .highlight-card h3 {
+  color: var(--accent) !important;
+}
+.alternate-theme .section-intro {
+  color: var(--accent) !important;
+}
+.alternate-theme .highlight-card p {
+  color: var(--accent) !important;
+}
+/* Footer */
+.alternate-theme .site-footer {
+  background: rgba(22, 3, 3, 0.9) !important;
+}
+
+.alternate-theme,
+.alternate-theme .footer-section h3 {
+  color: var(--accent) !important;
+}
+.alternate-theme,
+.alternate-theme .footer-section h2 {
+  color: var(--accent) !important;
+}
+
+.alternate-theme,
+.alternate-theme .footer-thema {
+  color: var(--accent) !important;
+}
+/* ////////// ===>>        ThemeSwitch        <<=== \\\\\\\\\\ */

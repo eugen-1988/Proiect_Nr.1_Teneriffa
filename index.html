@@ -8,9 +8,8 @@
       name="description"
       content="Discover the top 10 things to do in Tenerife—from beaches to volcanoes. Find the best activities for adventure, relaxation, and unforgettable memories."
     />
-    <title>
-      Top 10 Activities in Tenerife&mdash;Your Ultimate Island Escape
-    </title>
+    <title>Discover Tenerifa Island&mdash;Your Ultimate Island Escape</title>
+    <link rel="icon" type="image/png" href="img/logo16x16.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,59 +28,51 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <header class="hero-section">
-      <div class="navbar">
-        <div class="logo">YourTrip</div>
+    <header class="hero-section" id="hero-section">
+      <div class="navbar" id="navbar">
+        <div class="logo" id="logo">YourTrip</div>
         <nav>
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Faq</a>
-          <div class="dropdown">
-            <button class="dropbtn">
-              <span class="dropbtn-main" id="selected-language"
-                >Language ▾</span
-              >
+          <a class="accent" href="#" id="home-link">Home </a>
+          <a class="accent" href="#" id="about-link">About</a>
+          <a class="accent" href="#" id="faq-link">Theme Switch</a>
+          <div class="dropdown" id="language-dropdown">
+            <button class="dropbtn accent" id="dropbtn">
+              <span class="accent" id="selected-language">Language ▾</span>
               <img
                 id="language-flag"
                 src="Img/lang_img/English_lang.png"
                 alt="Language Flag"
               />
             </button>
-            <div class="dropdown-content">
-              <a
-                href="#"
-                onclick="changeLanguage('English', 'English_lang.png')"
-              >
+            <div class="dropdown-content" id="dropdown-content">
+              <a class="accent" href="#" data-lang="en">
+                <img src="Img/lang_img/English_lang.png" alt="English" />
                 English
-                <img src="Img/lang_img/English_lang.png" alt="English Flag" />
               </a>
-              <a
-                href="#"
-                onclick="changeLanguage('Deutsch', 'German_lang.png')"
-              >
-                Deutsch
-                <img src="Img/lang_img/German_lang.png" alt="German Flag" />
+              <a class="accent" href="#" data-lang="de">
+                <img src="Img/lang_img/German_lang.png" alt="German" /> Deutsch
               </a>
-              <a
-                href="#"
-                onclick="changeLanguage('Español', 'Spanish_lang.png')"
-              >
+              <a class="accent" href="#" data-lang="es">
+                <img src="Img/lang_img/Spanish_lang.png" alt="Spanish" />
                 Español
-                <img src="Img/lang_img/Spanish_lang.png" alt="Spanish Flag" />
               </a>
             </div>
           </div>
         </nav>
       </div>
-      <div class="header-text">
-        <div class="text-content">
-          <h3>Discover Tenerifa Island</h3>
-          <h1>New Adventure</h1>
-          <p>Wonderful places on tenerifa island dicover here</p>
-          <a href="#testimonials">Learn More</a>
+      <div class="header-text" id="header-text">
+        <div class="text-content" id="text-content">
+          <h3 class="accent" id="header-subtitle">Discover Tenerifa Island</h3>
+          <h1 class="accent" id="header-title">New Adventure</h1>
+          <p class="sub-title accent" id="header-description">
+            Why Tenerife Is a Paradise for Nature Lovers and Explorers
+          </p>
+          <a href="#testimonials" class="thema" id="learn-more-link"
+            >Learn More</a
+          >
         </div>
       </div>
-      <ul class="slides">
+      <ul class="slides" id="slides">
         <li><span></span></li>
         <li><span></span></li>
         <li><span></span></li>
@@ -90,133 +81,161 @@
         <li><span></span></li>
       </ul>
     </header>
-    <section class="carousell-container">
-      <div class="container swiper">
-        <div class="card-wrapper">
-          <ul class="card-list swiper-wrapper">
-            <li class="card-item swiper-slide">
-              <a href="#" class="card-link">
+    <section class="carousell-container" id="carousell-container">
+      <div class="container swiper" id="swiper-container">
+        <div class="card-wrapper" id="card-wrapper">
+          <ul class="card-list swiper-wrapper" id="card-list">
+            <li class="card-item swiper-slide" id="top-beaches">
+              <a href="#" class="card-link" id="beaches-link">
                 <img
                   src="Img/carusel/beaches.png"
-                  alt="Card Image"
+                  alt="Top Beaches in Tenerife"
                   class="card-image"
+                  id="beaches-image"
                 />
-                <p class="badge">Top Beaches</p>
-                <h2 class="card-title">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                <p class="badge" id="beaches-badge">Top Beaches</p>
+                <h2 class="card-title accent" id="beaches-title">
+                  Golden sands, hidden coves, and perfect swim spots await.
                 </h2>
-                <button class="card-button material-symbols-rounded">
+                <button
+                  class="card-button material-symbols-rounded"
+                  id="beaches-btn"
+                >
                   arrow_forward
                 </button>
               </a>
             </li>
 
-            <li class="card-item swiper-slide">
-              <a href="#" class="card-link">
+            <li class="card-item swiper-slide" id="top-hiking-trails">
+              <a href="#" class="card-link" id="hiking-link">
                 <img
                   src="Img/carusel/hiking.png"
-                  alt="Card Image"
+                  alt="Best Hiking Trails in Tenerife"
                   class="card-image"
+                  id="hiking-image"
                 />
-                <p class="badge">Top Hiking Trails</p>
-                <h2 class="card-title">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                <p class="badge" id="hiking-badge">Top Hiking Trails</p>
+                <h2 class="card-title accent" id="hiking-title">
+                  Epic views, volcanic paths, and lush forest routes.
                 </h2>
-                <button class="card-button material-symbols-rounded">
+                <button
+                  class="card-button material-symbols-rounded"
+                  id="hiking-btn"
+                >
                   arrow_forward
                 </button>
               </a>
             </li>
 
-            <li class="card-item swiper-slide">
-              <a href="#" class="card-link">
+            <li class="card-item swiper-slide" id="top-places">
+              <a href="#" class="card-link" id="places-link">
                 <img
                   src="Img/carusel/places.png"
-                  alt="Card Image"
+                  alt="Famous Places to Visit in Tenerife"
                   class="card-image"
+                  id="places-image"
                 />
-                <p class="badge">Top Places</p>
-                <h2 class="card-title">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                <p class="badge" id="places-badge">Top Places to Visit</p>
+                <h2 class="card-title accent" id="places-title">
+                  Iconic sights, charming towns, and natural wonders.
                 </h2>
-                <button class="card-button material-symbols-rounded">
+                <button
+                  class="card-button material-symbols-rounded"
+                  id="places-btn"
+                >
                   arrow_forward
                 </button>
               </a>
             </li>
 
-            <li class="card-item swiper-slide">
-              <a href="#" class="card-link">
+            <li class="card-item swiper-slide" id="top-restaurants">
+              <a href="#" class="card-link" id="restaurants-link">
                 <img
                   src="Img/carusel/restaurant.png"
-                  alt="Card Image"
+                  alt="Local Restaurants in Tenerife"
                   class="card-image"
+                  id="restaurants-image"
                 />
-                <p class="badge">Top Restaurants</p>
-                <h2 class="card-title">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                <p class="badge" id="restaurants-badge">Top Restaurants</p>
+                <h2 class="card-title accent" id="restaurants-title">
+                  Tasty local dishes and unforgettable dining experiences.
                 </h2>
-                <button class="card-button material-symbols-rounded">
+                <button
+                  class="card-button material-symbols-rounded"
+                  id="restaurants-btn"
+                >
                   arrow_forward
                 </button>
               </a>
             </li>
 
-            <li class="card-item swiper-slide">
-              <a href="#" class="card-link">
+            <li class="card-item swiper-slide" id="top-viewpoints">
+              <a href="#" class="card-link" id="viewpoints-link">
                 <img
                   src="Img/carusel/wiewpoint.png"
-                  alt="Card Image"
+                  alt="Scenic Viewpoints in Tenerife"
                   class="card-image"
+                  id="viewpoints-image"
                 />
-                <p class="badge">Top Wiewpoints</p>
-                <h2 class="card-title">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                <p class="badge" id="viewpoints-badge">Top Viewpoints</p>
+                <h2 class="card-title accent" id="viewpoints-title">
+                  Stunning views, perfect sunsets, and photo-ready spots.
                 </h2>
-                <button class="card-button material-symbols-rounded">
+                <button
+                  class="card-button material-symbols-rounded"
+                  id="viewpoints-btn"
+                >
                   arrow_forward
                 </button>
               </a>
             </li>
           </ul>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-slide-button swiper-button-prev"></div>
-          <div class="swiper-slide-button swiper-button-next"></div>
+          <div class="swiper-pagination" id="swiper-pagination"></div>
+          <div
+            class="swiper-slide-button swiper-button-prev"
+            id="swiper-prev"
+          ></div>
+          <div
+            class="swiper-slide-button swiper-button-next"
+            id="swiper-next"
+          ></div>
         </div>
       </div>
     </section>
     <section id="testimonials" class="testimonials-section">
       <div class="testimonials">
-        <h2 class="section-title">Why You Should Definitely Visit Tenerife</h2>
-        <p class="section-intro">
-          Tenerife is a captivating island that offers something for
-          everyone—whether you're a nature lover, an adventure seeker, or
-          someone who simply wants to relax and unwind. As the largest of the
-          Canary Islands, Tenerife is blessed with a stunning diversity of
-          landscapes, activities, and experiences that make it a must-visit
-          destination.
+        <h2 class="section-title" id="testimonials-title">
+          Why You Should Definitely Visit Tenerife
+        </h2>
+        <p class="section-intro" id="testimonials-intro-1">
+          Tenerife is a captivating island that offers something for everyone—
+          whether you're a nature lover, an adventure seeker, or someone who
+          simply wants to relax and unwind. As the largest of the Canary
+          Islands, Tenerife is blessed with a stunning diversity of landscapes,
+          activities, and experiences that make it a must-visit destination.
         </p>
-        <p class="section-intro">
+        <p class="section-intro" id="testimonials-intro-2">
           Here are just a few of the reasons why you should pack your bags and
           head to Tenerife:
         </p>
 
-        <div class="highlight-card">
-          <h3>1. Unforgettable Views from Mount Teide</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-1">
+          <h3 id="highlight-title-1">
+            1. Unforgettable Views from Mount Teide
+          </h3>
+          <p id="highlight-description-1">
             Mount Teide, a UNESCO World Heritage site and Spain’s highest peak,
             is one of the island’s biggest attractions. Whether you hike to the
-            summit or take the cable car, the views are truly
-            breathtaking.Standing atop this dormant volcano, you’ll have
-            panoramic vistas of the island and the surrounding Atlantic Ocean,
-            making it a perfect spot for photography and a must-see for nature
-            lovers.
+            summit or take the cable car, the views are truly breathtaking.
+            Standing atop this dormant volcano, you’ll have panoramic vistas of
+            the island and the surrounding Atlantic Ocean, making it a perfect
+            spot for photography and a must-see for nature lovers.
           </p>
         </div>
 
-        <div class="highlight-card">
-          <h3>2. Spectacular Beaches for Every Taste</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-2">
+          <h3 id="highlight-title-2">2. Spectacular Beaches for Every Taste</h3>
+          <p id="highlight-description-2">
             Tenerife’s beaches offer something for everyone. From the black
             volcanic sands of Playa Jardín in Puerto de la Cruz to the golden
             shores of Playa de las Américas, there are plenty of beautiful spots
@@ -226,9 +245,9 @@
           </p>
         </div>
 
-        <div class="highlight-card">
-          <h3>3. Stunning Hiking Trails</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-3">
+          <h3 id="highlight-title-3">3. Stunning Hiking Trails</h3>
+          <p id="highlight-description-3">
             Tenerife is a hiker's paradise, with trails that take you through
             lush forests, rugged mountains, and coastal cliffs. Explore the
             Anaga Rural Park, where the ancient laurel forests will make you
@@ -238,9 +257,9 @@
           </p>
         </div>
 
-        <div class="highlight-card">
-          <h3>4. Charming Villages and Local Culture</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-4">
+          <h3 id="highlight-title-4">4. Charming Villages and Local Culture</h3>
+          <p id="highlight-description-4">
             Tenerife is not just about beaches and mountains—it’s also home to
             charming towns and villages. Stroll through La Orotava, with its
             cobbled streets and colorful colonial architecture. Don’t miss the
@@ -250,9 +269,9 @@
           </p>
         </div>
 
-        <div class="highlight-card">
-          <h3>5. Unique Wildlife and Marine Life</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-5">
+          <h3 id="highlight-title-5">5. Unique Wildlife and Marine Life</h3>
+          <p id="highlight-description-5">
             For nature lovers, Tenerife offers opportunities to spot unique
             wildlife both on land and at sea. The island is a hotspot for
             birdwatching, where you can spot species like the Canary Islands
@@ -264,9 +283,9 @@
           </p>
         </div>
 
-        <div class="highlight-card">
-          <h3>6. Delicious Local Cuisine</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-6">
+          <h3 id="highlight-title-6">6. Delicious Local Cuisine</h3>
+          <p id="highlight-description-6">
             Tenerife offers a rich culinary experience that will tantalize your
             taste buds. From fresh seafood to traditional Canarian dishes like
             papas arrugadas (wrinkled potatoes) with mojo sauce, you'll find
@@ -275,9 +294,9 @@
           </p>
         </div>
 
-        <div class="highlight-card">
-          <h3>7. Year-Round Perfect Weather</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-7">
+          <h3 id="highlight-title-7">7. Year-Round Perfect Weather</h3>
+          <p id="highlight-description-7">
             Tenerife boasts a subtropical climate, offering sunshine and mild
             temperatures all year round. Whether you visit in summer or winter,
             you’ll be greeted by warm, pleasant weather, making it a great
@@ -285,9 +304,9 @@
           </p>
         </div>
 
-        <div class="highlight-card">
-          <h3>8. Relaxation and Wellness</h3>
-          <p>
+        <div class="highlight-card" id="highlight-card-8">
+          <h3 id="highlight-title-8">8. Relaxation and Wellness</h3>
+          <p id="highlight-description-8">
             If you're looking to relax, Tenerife has many spa resorts and
             wellness retreats. Enjoy a tranquil day at one of the island's
             luxurious spa hotels, surrounded by the beauty of nature. The
@@ -296,9 +315,9 @@
           </p>
         </div>
 
-        <div class="highlight-card conclusion">
-          <h3>Your Next Adventure Awaits</h3>
-          <p>
+        <div class="highlight-card conclusion" id="highlight-card-conclusion">
+          <h3 id="highlight-title-conclusion">Your Next Adventure Awaits</h3>
+          <p id="highlight-description-conclusion">
             From the volcanic landscapes of Mount Teide to its pristine beaches
             and rich cultural heritage, Tenerife offers an unforgettable
             experience. Whether you’re seeking adventure, relaxation, or a
@@ -309,17 +328,17 @@
         </div>
       </div>
     </section>
-    <footer class="site-footer">
-      <div class="footer-container">
+    <footer class="site-footer" id="site-footer">
+      <div class="footer-container" id="footer-container">
         <!-- Column 1: Logo -->
-        <div class="footer-section logo-f">
-          <a href="#" class="footer-logo">YourTrip</a>
+        <div class="footer-section logo-f" id="footer-logo-section">
+          <a href="#" class="footer-logo" id="footer-logo">YourTrip</a>
         </div>
 
         <!-- Column 2: Text Block -->
-        <div class="footer-section info">
-          <h2>Explore Tenerife</h2>
-          <p>
+        <div class="footer-section info" id="footer-info-section">
+          <h2 id="footer-info-title">Explore Tenerife</h2>
+          <p class="footer-thema" id="footer-info-description">
             This website was made to help you explore Tenerife's best spots —
             beaches, hikes, restaurants, and hidden gems — all in one place.
             Just your ultimate island guide, no fluff.
@@ -327,22 +346,33 @@
         </div>
 
         <!-- Column 3: Contact -->
-        <div class="footer-section contact">
-          <h3>Contact</h3>
-          <ul>
+        <div class="footer-section contact" id="footer-contact-section">
+          <h3 id="footer-contact-title">Contact</h3>
+          <ul id="footer-contact-list">
             <li>
-              <a href="mailto:hello@exploretenerife.com"
+              <a
+                class="footer-thema"
+                href="mailto:hello@exploretenerife.com"
+                id="footer-email"
                 >hello@exploretenerife.com</a
               >
             </li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Facebook</a></li>
+            <li>
+              <a class="footer-thema" href="#" id="footer-instagram"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a class="footer-thema" href="#" id="footer-facebook">Facebook</a>
+            </li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2025 Explore Tenerife. All rights reserved.</p>
+      <div class="footer-bottom" id="footer-bottom">
+        <p class="footer-thema" id="footer-copyright">
+          &copy; 2025 Explore Tenerife. All rights reserved.
+        </p>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
