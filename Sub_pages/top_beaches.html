@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Discover the top 10 things to do in Tenerife—from beaches to volcanoes. Find the best activities for adventure, relaxation, and unforgettable memories."
+    />
+    <title>Discover Tenerifa Island&mdash;Your Ultimate Island Escape</title>
+    <link rel="icon" type="image/png" href="sub_page/logo16x16.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="universal.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="hero-section" id="hero-section">
+      <div class="navbar" id="navbar">
+        <div class="logo" id="logo">YourTrip</div>
+        <nav id="main-nav">
+          <a class="accent" href="#" id="home-link">Home </a>
+          <a class="accent" href="#site-footer" id="about-link">About</a>
+          <a class="accent" href="#" id="faq-link">Theme Switch</a>
+          <div class="dropdown" id="language-dropdown">
+            <button class="dropbtn accent" id="dropbtn">
+              <span class="accent" id="selected-language">Language ▾</span>
+              <img
+                id="language-flag"
+                src="sub_page/lang_img/English_lang.png"
+                alt="Language Flag"
+              />
+            </button>
+            <div class="dropdown-content" id="dropdown-content">
+              <a class="accent" href="#" data-lang="en" id="english-lang">
+                <img src="sub_page/lang_img/English_lang.png" alt="English" />
+                English
+              </a>
+              <a class="accent" href="#" data-lang="de" id="german-lang">
+                <img src="sub_page/lang_img/German_lang.png" alt="German" />
+                Deutsch
+              </a>
+              <a class="accent" href="#" data-lang="es" id="spanish-lang">
+                <img src="sub_page/lang_img/Spanish_lang.png" alt="Spanish" />
+                Español
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="header-text" id="header-text">
+        <div class="text-content" id="text-content">
+          <h3 class="accent" id="header-subtitle">Discover Tenerifa Island</h3>
+          <h1 class="accent" id="header-title">Top beaches on Tenerife</h1>
+        </div>
+      </div>
+      <ul class="slides" id="slides">
+        <li id="slide-1"><span></span></li>
+        <li id="slide-2"><span></span></li>
+        <li id="slide-3"><span></span></li>
+        <li id="slide-4"><span></span></li>
+        <li id="slide-5"><span></span></li>
+        <li id="slide-6"><span></span></li>
+      </ul>
+    </header>
+    <section class="main-container" id="main-container">
+      <div id="sort-controls" class="sort-controls">
+        <div class="dropdown" id="filter-dropdown">
+          <button id="filterDropdownButton" class="filter-button">
+            Filter
+          </button>
+          <div class="dropdown-content-filter" id="filterOptions">
+            <a href="#" data-infra="all" id="filter-all">Show All</a>
+            <a href="#" data-infra="yes" id="filter-yes">With Infrastructure</a>
+            <a href="#" data-infra="no" id="filter-no"
+              >Without Infrastructure</a
+            >
+          </div>
+        </div>
+        <button id="sortButton">Sort Beaches Alphabetically</button>
+      </div>
+      <div class="beaches-section" id="beaches-section">
+        <div class="beach-row" data-infra="yes" id="beach-medano">
+          <div class="beach-photo" id="medano-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_medano_1.jpg"
+              alt="Playa del medano"
+              id="medano-img"
+            />
+          </div>
+          <div class="beach-info" id="medano-info">
+            <h2 id="medano-title">El Médano</h2>
+            <p id="medano-desc" class="accent">
+              A popular destination for its ideal wind conditions, Playa del
+              Médano is a renowned spot for water sports. With its fine sand and
+              shallow waters, it's ideal for families and thrill-seekers alike.
+              We loved the stunning view of Montaña Roja. It's a beach that
+              invites relaxation and contemplation.
+            </p>
+          </div>
+          <div class="beach-map" id="medano-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.002662841102!2d-16.539323360700955!3d28.042945120050266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9ffb307f9d13%3A0x46679d0a771a054a!2sPlaya%20de%20El%20M%C3%A9dano!5e0!3m2!1sde!2sde!4v1745239959647!5m2!1sde!2sde"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="medano-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-teresitas">
+          <div class="beach-photo" id="teresitas-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_teresitas_2.jpg"
+              alt="Playa de Las Teresitas"
+              id="teresitas-img"
+            />
+          </div>
+          <div class="beach-info" id="teresitas-info">
+            <h2 id="teresitas-title">Las Teresitas</h2>
+            <p id="teresitas-desc" class="accent">
+              This magnificent beach of golden sand imported from the Sahara,
+              stretching for almost a kilometer, is one of the region's jewels.
+              We particularly appreciate its gentle, gradual slope as you enter
+              the water. It's perfect for a family outing with swimming, water
+              polo, beach volleyball, pedal boats and other modern facilities.
+            </p>
+          </div>
+          <div class="beach-map" id="teresitas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.0543812388805!2d-16.186949723838794!3d28.508011539723157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41ca38d1d9c17f%3A0x5694f9ae1bd14e6b!2sPlaya%20de%20Las%20Teresitas!5e0!3m2!1sde!2sde!4v1745240022317!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="teresitas-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-duque">
+          <div class="beach-photo" id="duque-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_del_duque_3.jpg"
+              alt="Playa del duque"
+              id="duque-img"
+            />
+          </div>
+          <div class="beach-info" id="duque-info">
+            <h2 id="duque-title">Duque</h2>
+            <p id="duque-desc" class="accent">
+              Fine golden sand and calm turquoise waters: this well-kept beach
+              offers a luxurious setting, surrounded by high-end hotels and chic
+              boutiques. This beautiful extended beach is divided into 2: Playa
+              del Duque North and Playa del Duque South. It is well equipped.
+            </p>
+          </div>
+          <div class="beach-map" id="duque-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1759.902808667518!2d-16.7456211111259!3d28.091471560229287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a974a4966c4d1%3A0x82b346cca767a4ea!2sPlaya%20del%20Duque!5e0!3m2!1sde!2sde!4v1745240662593!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="duque-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-jimenez">
+          <div class="beach-photo" id="jimenez-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_jimenez_4.jpg"
+              alt=" Playa Jiménez"
+              id="jimenez-img"
+            />
+          </div>
+          <div class="beach-info" id="jimenez-info">
+            <h2 id="jimenez-title">Jiménez</h2>
+            <p id="jimenez-desc" class="accent">
+              Playa Jimenez is our favorite in Puerto de la Cruz. It is the
+              furthest from the center. You can recognize it by the colorful
+              facades at the end of the promenade overlooking it. We went there
+              in the early hours of the morning and really appreciated its
+              peaceful atmosphere.
+            </p>
+          </div>
+          <div class="beach-map" id="jimenez-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2147.7708631905493!2d-16.563496662642788!3d28.41092683236702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a7fc1277e225f%3A0xe0572bf0db4612ba!2sPlaya%20Maria%20Jim%C3%A9nez!5e0!3m2!1sde!2sde!4v1745240788742!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="jimenez-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-camison">
+          <div class="beach-photo" id="camison-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_el_camison_5.jpg"
+              alt="Playa del Camison"
+              id="camison-img"
+            />
+          </div>
+          <div class="beach-info" id="camison-info">
+            <h2 id="camison-title">Del Camison</h2>
+            <p id="camison-desc" class="accent">
+              Playa del Camison pleasantly surprised us with its charm. This
+              small beach of golden sand, nestled between two rocky
+              promontories, offers calm, crystal-clear waters. We appreciated
+              its family atmosphere and proximity to amenities, while remaining
+              away from the hustle and bustle of the big seaside resorts.
+            </p>
+          </div>
+          <div class="beach-map" id="camison-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1438.2883863467941!2d-16.732033209299008!3d28.052456259849105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a977871a50161%3A0x9e7a08b5c7ab4655!2sPlaya%20del%20Camis%C3%B3n!5e0!3m2!1sde!2sde!4v1745240900234!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="camison-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-guios">
+          <div class="beach-photo" id="guios-photo">
+            <img
+              src="sub_page/top_beaches/beaches/Playa_los_gigantes_6.jpg"
+              alt="Playa de Los Guios"
+              id="guios-img"
+            />
+          </div>
+          <div class="beach-info" id="guios-info">
+            <h2 id="guios-title">Los Guios</h2>
+            <p id="guios-desc" class="accent">
+              Located at the foot of the impressive Los Gigantes cliffs, Playa
+              de Los Guios offers a breathtaking setting. We were fascinated by
+              the volcanic rock walls overlooking the beach. One section was
+              closed at the time of our visit due to falling rocks. Playa de Los
+              Guyos is also the ideal starting point for water sports
+              activities.
+            </p>
+          </div>
+          <div class="beach-map" id="guios-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.253629852217!2d-16.842055384049257!3d28.2474093513398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a8c14bab61613%3A0xe39c3f69acbc5812!2sPlaya%20de%20los%20Gu%C3%ADos!5e0!3m2!1sde!2sde!4v1745241042800!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="guios-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-gaviotas">
+          <div class="beach-photo" id="gaviotas-photo">
+            <img
+              src="sub_page/top_beaches/beaches/Playa_de_las_gaviotas_7.jpg"
+              alt="Playa de Las Gaviotas"
+              id="gaviotas-img"
+            />
+          </div>
+          <div class="beach-info" id="gaviotas-info">
+            <h2 id="gaviotas-title">Las Gaviotas</h2>
+            <p id="gaviotas-desc" class="accent">
+              This beautiful black sand beach is a little corner of paradise
+              surrounded by impressive cliffs. We were won over by the natural,
+              unspoilt setting of Playa de Las Gaviotas. Although the TF-121
+              road leading to it is narrow and winding, it's well worth the
+              detour. We fell under the spell of this haven of peace, cut off
+              from the world.
+            </p>
+          </div>
+          <div class="beach-map" id="gaviotas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8924440972996!2d-16.178724123838695!3d28.51288353950279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41ca16a161c179%3A0x2d19ae48f898cf!2sPlaya%20de%20Las%20Gaviotas!5e0!3m2!1sde!2sde!4v1745241236080!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="gaviotas-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-benijo">
+          <div class="beach-photo" id="benijo-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_del_benijo_8.jpg"
+              alt="Playa del Benijo"
+              id="benijo-img"
+            />
+          </div>
+          <div class="beach-info" id="benijo-info">
+            <h2 id="benijo-title">Benijo</h2>
+            <p id="benijo-desc" class="accent">
+              Playa del Benijo seduced us with its wild beauty and secluded
+              atmosphere. This black sand and pebble beach offers breathtaking
+              scenery with its spectacular rock formations and sculpted cliffs.
+            </p>
+          </div>
+          <div class="beach-map" id="benijo-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1751.937691623041!2d-16.194910911122825!3d28.57350454945304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41c852dab89dfb%3A0x3667246d1bf8b4f6!2sPlaya%20de%20Benijo!5e0!3m2!1sde!2sde!4v1745241300168!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="benijo-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-bodegas">
+          <div class="beach-photo" id="bodegas-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_del_roque_de_las_bodegas_9.jpg"
+              alt="Playa del Roque de las Bodeguas"
+              id="bodegas-img"
+            />
+          </div>
+          <div class="beach-info" id="bodegas-info">
+            <h2 id="bodegas-title">Roque de las Bodeguas</h2>
+            <p id="bodegas-desc" class="accent">
+              In the Anaga massif, we were really seduced by this wild beach
+              with its deep black sand, a far cry from the touristy beaches of
+              the south. On one side the view of the Anaga cliffs, on the other
+              a rocky promontory that gives it its name.
+            </p>
+          </div>
+          <div class="beach-map" id="bodegas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.002834921907!2d-16.207676873837276!3d28.569677586930933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41c9aab48b3d0d%3A0xcba8ab010fb66cd8!2sPlaya%20del%20Roque%20de%20las%20Bodegas!5e0!3m2!1sde!2sde!4v1745241480170!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="bodegas-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-cueva">
+          <div class="beach-photo" id="cueva-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_cueva_del_agua_10.jpg"
+              alt="Playa Cueva del Agua"
+              id="cueva-img"
+            />
+          </div>
+          <div class="beach-info" id="cueva-info">
+            <h2 id="cueva-title">Cueva del Agua</h2>
+            <p id="cueva-desc" class="accent">
+              This secluded beach, to the east of Playa de La Gaviotas, is one
+              of our favorites hidden away in the Anaga massif. We were seduced
+              by its fine black sand and natural charm. Although unsupervised
+              and unequipped, it offers good swimming conditions.
+            </p>
+          </div>
+          <div class="beach-map" id="cueva-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14023.396763412293!2d-16.18474413358143!3d28.514184716598066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41ca113d0041eb%3A0x5130e790ac8c614!2sPlaya%20Cueva%20de%20Agua!5e0!3m2!1sde!2sde!4v1745241705184!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="cueva-iframe"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-tejita">
+          <div class="beach-photo" id="tejita-photo">
+            <img
+              src="sub_page/top_beaches/beaches/playa_de_la_tejitas.jpg"
+              alt="Playa de la Tejita"
+              id="tejita-img"
+            />
+          </div>
+          <div class="beach-info" id="tejita-info">
+            <h2 id="tejita-title">Tejita</h2>
+            <p id="tejita-desc" class="accent">
+              Playa de la Tejita won us over with its natural, unspoilt
+              character. One of Tenerife's largest natural beaches, this long
+              golden sandy beach offers a spectacular setting with the Roja
+              mountain in the background.
+            </p>
+          </div>
+          <div class="beach-map" id="tejita-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.778521524742!2d-16.55903187385098!3d28.031244361130337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9ff5170e8a17%3A0xaa831a135b97ea0a!2sPlaya%20La%20Tejita!5e0!3m2!1sde!2sde!4v1745241821670!5m2!1sde!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="tejita-iframe"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer">
+      <div class="footer-container" id="footer-container">
+        <!-- Column 1: Logo -->
+        <div class="footer-section logo-f" id="footer-logo-section">
+          <a href="#" class="footer-logo" id="footer-logo">YourTrip</a>
+        </div>
+
+        <!-- Column 2: Text Block -->
+        <div class="footer-section info" id="footer-info-section">
+          <h2 id="footer-info-title">Explore Tenerife</h2>
+          <p class="footer-thema" id="footer-info-description">
+            This website was made to help you explore Tenerife's best spots —
+            beaches, hikes, restaurants, and hidden gems — all in one place.
+            Just your ultimate island guide, no fluff.
+          </p>
+        </div>
+        <!-- Column 3: Contact -->
+        <div class="footer-section contact" id="footer-contact-section">
+          <h3 id="footer-contact-title">Contact</h3>
+          <ul id="footer-contact-list">
+            <li id="contact-email">
+              <a
+                class="footer-thema"
+                href="mailto:hello@exploretenerife.com"
+                id="footer-email"
+                >hello@exploretenerife.com</a
+              >
+            </li>
+            <li id="contact-instagram">
+              <a class="footer-thema" href="#" id="footer-instagram"
+                >Instagram</a
+              >
+            </li>
+            <li id="contact-facebook">
+              <a class="footer-thema" href="#" id="footer-facebook">Facebook</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" id="footer-bottom">
+        <p class="footer-thema" id="footer-copyright">
+          &copy; 2025 Explore Tenerife. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
