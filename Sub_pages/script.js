@@ -36,7 +36,7 @@ new Swiper(".card-wrapper", {
 
 const navbar = document.querySelector(".navbar");
 let hasUserScrolled = false;
-
+let texts;
 // Listen for user scroll interaction
 function onUserScroll() {
   hasUserScrolled = true;
@@ -54,91 +54,6 @@ function checkScroll() {
 window.addEventListener("scroll", onUserScroll);
 
 // ==========>>>>              Scrolled Navbar           <<<<=========== //
-
-// ==========>>>>             Sprache wechseln          <<<<=========== //
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Language configuration
-  const languageConfig = {
-    en: {
-      name: "English",
-      flag: "English_lang.png",
-      code: "en",
-    },
-    de: {
-      name: "Deutsch",
-      flag: "German_lang.png",
-      code: "de",
-    },
-    es: {
-      name: "Español",
-      flag: "Spanish_lang.png",
-      code: "es",
-    },
-  };
-
-  // Load translations
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((translations) => {
-      // Initialize with saved language or default to English
-      const savedLang = localStorage.getItem("language") || "en";
-      changeLanguage(savedLang, translations, languageConfig);
-
-      // Setup dropdown event listeners
-      setupLanguageDropdown(translations, languageConfig);
-    })
-    .catch((error) => console.error("Error loading translations:", error));
-
-  // Toggle dropdown
-  document.getElementById("dropbtn").addEventListener("click", function (e) {
-    e.stopPropagation();
-    document.getElementById("dropdown-content").classList.toggle("show");
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener("click", function () {
-    document.getElementById("dropdown-content").classList.remove("show");
-  });
-});
-
-function changeLanguage(langCode, translations, languageConfig) {
-  const langData = translations[langCode];
-  const config = languageConfig[langCode];
-
-  if (!langData || !config) return;
-
-  // Update button text and flag
-  document.getElementById("selected-language").textContent = config.name;
-  document.getElementById(
-    "language-flag"
-  ).src = `sub_page/lang_img/${config.flag}`;
-  document.getElementById("language-flag").alt = config.name;
-
-  // Update all translatable elements
-  for (const [key, value] of Object.entries(langData)) {
-    const element = document.getElementById(key);
-    if (element) {
-      element.textContent = value;
-    }
-  }
-
-  // Save preference
-  localStorage.setItem("language", langCode);
-}
-
-function setupLanguageDropdown(translations, languageConfig) {
-  document.querySelectorAll("#dropdown-content a").forEach((item) => {
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      const langCode = this.getAttribute("data-lang");
-      changeLanguage(langCode, translations, languageConfig);
-      document.getElementById("dropdown-content").classList.remove("show");
-    });
-  });
-}
-
-// ==========>>>>             Sprache wechseln          <<<<=========== //
 
 // ==========>>>>             ThemeSwitch         <<<<=========== //
 
@@ -162,32 +77,130 @@ if (localStorage.getItem("altTheme") === "true") {
 
 // ==========>>>>             ThemeSwitch         <<<<=========== //
 
-//  ==================  Sort-Button-Alphabetically ====================  //
+// ==========>>>>             Sprache wechseln          <<<<=========== //
+document.addEventListener("DOMContentLoaded", function () {
+  // Language configuration with button texts
+  const languageConfig = {
+    en: {
+      name: "English",
+      flag: "English_lang.png",
+      code: "en",
+      filterButton: "Filter: Show All",
+      sortButton: "Sort Beaches Alphabetically",
+      filterYes: "Filter: With Infrastructure",
+      filterNo: "Filter: Without Infrastructure",
+      sortDefault: "Default Order",
+    },
+    de: {
+      name: "Deutsch",
+      flag: "German_lang.png",
+      code: "de",
+      filterButton: "Filter: Alle anzeigen",
+      sortButton: "Strände alphabetisch sortieren",
+      filterYes: "Mit Infrastruktur",
+      filterNo: "Ohne Infrastruktur",
+      sortDefault: "Standard Reihenfolge",
+    },
+    es: {
+      name: "Español",
+      flag: "Spanish_lang.png",
+      code: "es",
+      filterButton: "Filtro: Mostrar todo",
+      sortButton: "Ordenar playas alfabéticamente",
+      filterYes: "Con Infraestructura",
+      filterNo: "Sin Infraestructura",
+      sortDefault: "Orden Predeterminado",
+    },
+  };
 
-//  ==================  Sort-Button-Alphabetically ====================  //
+  let currentLang = localStorage.getItem("language") || "en";
+  let texts = {};
+  let isSorted = false;
+  let currentFilter = "all";
 
-//  ==================      Sort-Filter-Button   ====================  //
-document.addEventListener("DOMContentLoaded", () => {
+  // Load translations
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((translations) => {
+      texts = translations;
+      changeLanguage(currentLang, translations, languageConfig);
+      setupLanguageDropdown(translations, languageConfig);
+    })
+    .catch((error) => console.error("Error loading translations:", error));
+
+  // Dropdown toggle
+  document.getElementById("dropbtn").addEventListener("click", function (e) {
+    e.stopPropagation();
+    document.getElementById("dropdown-content").classList.toggle("show");
+  });
+
+  document.addEventListener("click", function () {
+    document.getElementById("dropdown-content").classList.remove("show");
+  });
+
+  function changeLanguage(langCode, translations, configData) {
+    currentLang = langCode;
+    const langData = translations[langCode];
+    const config = configData[langCode];
+
+    if (!langData || !config) return;
+
+    // Update language selection
+    document.getElementById("selected-language").textContent = config.name;
+    const flag = document.getElementById("language-flag");
+    flag.src = `sub_page/lang_img/${config.flag}`;
+    flag.alt = config.name;
+
+    // Update content from JSON
+    for (const [key, value] of Object.entries(langData)) {
+      const element = document.getElementById(key);
+      if (element) {
+        element.textContent = value;
+      }
+    }
+
+    // Update button text
+    updateButtonLabels();
+
+    // Save language
+    localStorage.setItem("language", langCode);
+  }
+
+  function setupLanguageDropdown(translations, configData) {
+    document.querySelectorAll("#dropdown-content a").forEach((item) => {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        const langCode = this.getAttribute("data-lang");
+        changeLanguage(langCode, translations, configData);
+        document.getElementById("dropdown-content").classList.remove("show");
+      });
+    });
+  }
+
+  function updateButtonLabels() {
+    const config = languageConfig[currentLang];
+    document.getElementById("filterDropdownButton").textContent =
+      config.filterButton;
+    document.getElementById("sortButton").textContent = isSorted
+      ? config.sortDefault
+      : config.sortButton;
+  }
+
+  // Beach Section logic
   const sortButton = document.getElementById("sortButton");
   const filterOptions = document.getElementById("filterOptions");
   const beachSection = document.querySelector(".beaches-section");
   const allRows = Array.from(beachSection.querySelectorAll(".beach-row"));
-  const originalOrder = allRows.map((row) => row.cloneNode(true));
-
-  let currentFilter = "all";
-  let isSorted = false;
 
   function renderBeaches() {
     beachSection.innerHTML = "";
 
-    // 1. Apply Filter
     let rowsToDisplay = allRows.filter((row) => {
       if (currentFilter === "yes") return row.dataset.infra === "yes";
       if (currentFilter === "no") return row.dataset.infra === "no";
-      return true; // "all"
+      return true;
     });
 
-    // 2. Apply Sort (if enabled)
     if (isSorted) {
       rowsToDisplay.sort((a, b) => {
         const titleA = a.querySelector("h2").textContent.trim().toLowerCase();
@@ -196,22 +209,25 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // 3. Render
     rowsToDisplay.forEach((row) => beachSection.appendChild(row));
   }
 
-  // Filter button logic
+  // Filter dropdown logic
   filterOptions.addEventListener("click", (event) => {
     if (event.target.tagName === "A") {
       event.preventDefault();
       currentFilter = event.target.dataset.infra;
 
-      const btn = document.getElementById("filterDropdownButton");
-      if (currentFilter === "yes")
-        btn.textContent = "Filter: With Infrastructure";
-      else if (currentFilter === "no")
-        btn.textContent = "Filter: Without Infrastructure";
-      else btn.textContent = "Filter: Show All";
+      const config = languageConfig[currentLang];
+      const filterButton = document.getElementById("filterDropdownButton");
+
+      if (currentFilter === "yes") {
+        filterButton.textContent = config.filterYes;
+      } else if (currentFilter === "no") {
+        filterButton.textContent = config.filterNo;
+      } else {
+        filterButton.textContent = config.filterButton;
+      }
 
       renderBeaches();
     }
@@ -220,14 +236,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sort button logic
   sortButton.addEventListener("click", () => {
     isSorted = !isSorted;
-    sortButton.textContent = isSorted
-      ? "Default Order"
-      : "Sort Beaches Alphabetically";
+    updateButtonLabels(); // Use selected language
     renderBeaches();
   });
 
-  // Initial render
-  renderBeaches();
+  renderBeaches(); // Initial load
 });
 //  ==================      Sort-Filter-Button   ====================  //
 
