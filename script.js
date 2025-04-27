@@ -30,7 +30,7 @@ new Swiper(".card-wrapper", {
     },
   },
 });
-
+// =======>>>>    Carousel Swipper
 // Scrolled Navbar
 const navbar = document.querySelector(".navbar");
 let hasUserScrolled = false;

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Discover the top 10 things to do in Tenerife—from beaches to volcanoes. Find the best activities for adventure, relaxation, and unforgettable memories."
+    />
+    <title>Discover Tenerifa Island&mdash;Your Ultimate Island Escape</title>
+    <link rel="icon" type="image/png" href="logo16x16.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="universal.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="hero-section" id="hero-section">
+      <div class="navbar" id="navbar">
+        <div class="logo" id="logo">YourTrip</div>
+        <nav id="main-nav">
+          <a class="accent" href="/index.html" id="home-link">Home </a>
+          <a class="accent" href="#site-footer" id="about-link">About</a>
+          <a class="accent" href="#" id="faq-link">Theme Switch</a>
+          <div class="dropdown" id="language-dropdown">
+            <button class="dropbtn accent" id="dropbtn">
+              <span class="accent" id="selected-language">Language ▾</span>
+              <img
+                id="language-flag"
+                src="lang_img/English_lang.png"
+                alt="Language Flag"
+              />
+            </button>
+            <div class="dropdown-content" id="dropdown-content">
+              <a class="accent" href="#" data-lang="en" id="english-lang">
+                <img src="lang_img/English_lang.png" alt="English" />
+                English
+              </a>
+              <a class="accent" href="#" data-lang="de" id="german-lang">
+                <img src="lang_img/German_lang.png" alt="German" />
+                Deutsch
+              </a>
+              <a class="accent" href="#" data-lang="es" id="spanish-lang">
+                <img src="lang_img/Spanish_lang.png" alt="Spanish" />
+                Español
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="header-text" id="header-text">
+        <div class="text-content" id="text-content">
+          <h3 class="accent" id="header-subtitle">Discover Tenerifa Island</h3>
+          <h1 class="accent" id="header-title">
+            Top Hiking Trails on Tenerife
+          </h1>
+        </div>
+      </div>
+      <ul class="slides" id="slides">
+        <li id="slide-1"><span></span></li>
+        <li id="slide-2"><span></span></li>
+        <li id="slide-3"><span></span></li>
+        <li id="slide-4"><span></span></li>
+        <li id="slide-5"><span></span></li>
+        <li id="slide-6"><span></span></li>
+      </ul>
+    </header>
+    <section class="main-container" id="main-container">
+      <div id="sort-controls" class="sort-controls">
+        <div class="dropdown" id="filter-dropdown">
+          <button id="filterDropdownButton" class="filter-button">
+            Filter
+          </button>
+          <div class="dropdown-content-filter" id="filterOptions">
+            <a href="#" data-infra="all" id="filter-all">Show All</a>
+            <a href="#" data-infra="yes" id="filter-yes">Hard Trails</a>
+            <a href="#" data-infra="no" id="filter-no">Moderate Trails</a>
+          </div>
+        </div>
+        <button id="sortButton">Sort Trails Alphabetically</button>
+      </div>
+      <div class="beaches-section" id="beaches-section">
+        <div class="beach-row" data-infra="no" id="beach-medano">
+          <div class="beach-photo" id="medano-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Roque_de_garcia_1.png"
+              alt="Playa del medano"
+              id="medano-img"
+            />
+          </div>
+          <div class="beach-info" id="medano-info">
+            <h2 id="medano-title">Roques de García</h2>
+            <p id="medano-desc" class="accent">
+              Discover this 3.4-km loop trail near Vilaflor, Tenerife. Generally
+              considered a moderately challenging route. This is a very popular
+              area for hiking, so you'll likely encounter other people while
+              exploring. The trail is open year-round and is beautiful to visit
+              anytime. Dogs are welcome, but must be on a leash.
+            </p>
+            <div class="hard-medium" id="hard-medium">
+              <h3 class="trail-title color" id="moderate">Moderate :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length">Length: </span> 3.4 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation"
+                    >Elevation Gain:</span
+                  >
+                  184 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="medano-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17448.964562220863!2d-16.641966733699128!3d28.22474002066983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a849fa3d28e3b%3A0xe5698549fe055d84!2sRoque%20Cinchado!5e1!3m2!1sen!2sde!4v1745591154622!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-teresitas">
+          <div class="beach-photo" id="teresitas-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Chinyero Volcano_2.webp"
+              alt="Playa de Las Teresitas"
+              id="teresitas-img"
+            />
+          </div>
+          <div class="beach-info" id="teresitas-info">
+            <h2 id="teresitas-title">Chinyero Volcano</h2>
+            <p id="teresitas-desc" class="accent">
+              Discover this 8.2-km loop trail near Santiago del Teide, Tenerife.
+              Generally considered a moderately challenging route, it takes an
+              average of 2 h 15 min to complete. This is a very popular area for
+              birding and hiking, so you'll likely encounter other people while
+              exploring. The trail is open year-round and is beautiful to visit
+              anytime.
+            </p>
+            <div class="hard-medium" id="hard-medium1">
+              <h3 class="trail-title color" id="moderate1">Moderate :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length1">Length : </span> 8.2 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation1"
+                    >Elevation Gain:</span
+                  >
+                  228 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="teresitas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14663.453755493003!2d-16.767324528369667!3d28.292454573920562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a89eb96014115%3A0x5125b0eec179e5bf!2sChinyero%20Volcano!5e1!3m2!1sen!2sde!4v1745591286641!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-duque">
+          <div class="beach-photo" id="duque-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Cruz del Draguillo_3.webp"
+              alt="Playa del duque"
+              id="duque-img"
+            />
+          </div>
+          <div class="beach-info" id="duque-info">
+            <h2 id="duque-title">Cruz del Draguillo</h2>
+            <p id="duque-desc" class="accent">
+              Experience this 5.1-km loop trail near Santa Cruz de Tenerife,
+              Tenerife. Generally considered a challenging route, it takes an
+              average of 2 h 33 min to complete. This is a very popular area for
+              hiking, so you'll likely encounter other people while exploring.
+              The trail is open year-round and is beautiful to visit anytime.
+              Dogs are welcome and may be off-leash in some areas
+            </p>
+            <div class="hard-medium" id="hard-medium2">
+              <h3 class="trail-title color" id="hard"></h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length2">Length:</span> 5.1 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation2"
+                    >Elevation Gain:</span
+                  >
+                  476 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="duque-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4348.006237952857!2d-16.171062523837243!3d28.57112418686547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41c9d215350493%3A0xbad425cea8dac075!2sCruz%20del%20Draguillo!5e1!3m2!1sen!2sde!4v1745591362218!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-jimenez">
+          <div class="beach-photo" id="jimenez-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Montaña Blanca_4.webp"
+              alt=" Playa Jiménez"
+              id="jimenez-img"
+            />
+          </div>
+          <div class="beach-info" id="jimenez-info">
+            <h2 id="jimenez-title">Montaña Blanca</h2>
+            <p id="jimenez-desc" class="accent">
+              Discover this 10.9-km point-to-point trail near El Portillo,
+              Tenerife. Generally considered a challenging route. This is a very
+              popular area for birding and hiking, so you'll likely encounter
+              other people while exploring. The trail is open year-round and is
+              beautiful to visit anytime.
+            </p>
+            <div class="hard-medium" id="hard-medium3">
+              <h3 class="trail-title color" id="hard3">Hard :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length3">Length:</span> 10.9 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation3"
+                    >Elevation Gain:</span
+                  >
+                  1.371 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="jimenez-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17441.830704770426!2d-16.623077733681466!3d28.26835106255106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a8393748d99bd%3A0xaa8b8f99170466e7!2sMonta%C3%B1a%20Blanca!5e1!3m2!1sen!2sde!4v1745591394774!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-camison">
+          <div class="beach-photo" id="camison-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Las Carboneras - Chinamada_5.webp"
+              alt="Playa del Camison"
+              id="camison-img"
+            />
+          </div>
+          <div class="beach-info" id="camison-info">
+            <h2 id="camison-title">Chinamada</h2>
+            <p id="camison-desc" class="accent">
+              Experience this 7.6-km loop trail near San Cristóbal de La Laguna,
+              Tenerife. Generally considered a moderately challenging route, it
+              takes an average of 2 h 35 min to complete. This is a very popular
+              area for birding and hiking, so you'll likely encounter other
+              people while exploring. The best times to visit this trail are
+              November through May.
+            </p>
+            <div class="hard-medium" id="hard-medium4">
+              <h3 class="trail-title color" id="moderate4">Moderate :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length4">Length:</span> 7.6 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation4"
+                    >Elevation Gain:</span
+                  >
+                  354 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="camison-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4348.265458186532!2d-16.297351123837352!3d28.56485088714972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cf0147c23027%3A0x7881b49ff04d9b2!2sMirador%20Aguaide!5e1!3m2!1sen!2sde!4v1745591428517!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-guios">
+          <div class="beach-photo" id="guios-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Mount Guajara_6.webp"
+              alt="Playa de Los Guios"
+              id="guios-img"
+            />
+          </div>
+          <div class="beach-info" id="guios-info">
+            <h2 id="guios-title">Mount Guajara</h2>
+            <p id="guios-desc" class="accent">
+              Head out on this 11.1-km loop trail near Vilaflor, Tenerife.
+              Generally considered a challenging route. This is a very popular
+              area for birding and hiking, so you'll likely encounter other
+              people while exploring. The trail is open year-round and is
+              beautiful to visit anytime.
+            </p>
+            <div class="hard-medium" id="hard-medium5">
+              <h3 class="trail-title color" id="hard5">Hard :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length5">Length:</span> 11.1 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation5"
+                    >Elevation Gain:</span
+                  >
+                  690 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="guios-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17450.23581034747!2d-16.62196673370226!3d28.216962072116736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a8345d4fafccd%3A0xafa85ceb891213c!2sMount%20Guajara!5e1!3m2!1sen!2sde!4v1745592531537!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-gaviotas">
+          <div class="beach-photo" id="gaviotas-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Hidalgo_7.webp"
+              alt="Playa de Las Gaviotas"
+              id="gaviotas-img"
+            />
+          </div>
+          <div class="beach-info" id="gaviotas-info">
+            <h2 id="gaviotas-title">Hidalgo Point</h2>
+            <p id="gaviotas-desc" class="accent">
+              Experience this 9.5-km out-and-back trail near Tegueste, Tenerife.
+              Generally considered a challenging route, it takes an average of 4
+              h 0 min to complete. This is a very popular area for hiking, so
+              you'll likely encounter other people while exploring. The trail is
+              open year-round and is beautiful to visit anytime.
+            </p>
+            <div class="hard-medium" id="hard-medium6">
+              <h3 class="trail-title color" id="hard6">Hard :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length6">Length:</span> 9.5 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation6"
+                    >Elevation Gain:</span
+                  >
+                  662 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="gaviotas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4348.265458186527!2d-16.29735112383738!3d28.56485088714973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cf0147c23027%3A0x7881b49ff04d9b2!2sMirador%20Aguaide!5e1!3m2!1sen!2sde!4v1745592562928!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-benijo">
+          <div class="beach-photo" id="benijo-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Callejón de Teno_8.webp"
+              alt="Playa del Benijo"
+              id="benijo-img"
+            />
+          </div>
+          <div class="beach-info" id="benijo-info">
+            <h2 id="benijo-title">Callejón de Teno</h2>
+            <p id="benijo-desc" class="accent">
+              Head out on this 10.0-km loop trail near Buenavista del Norte,
+              Tenerife. Generally considered a moderately challenging route.
+              This is a very popular area for birding and hiking, so you'll
+              likely encounter other people while exploring. The trail is open
+              year-round and is beautiful to visit anytime.
+            </p>
+            <div class="hard-medium" id="hard-medium7">
+              <h3 class="trail-title color" id="hard7">Hard :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length7">Length:</span> 10 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation7"
+                    >Elevation Gain:</span
+                  >
+                  580 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="benijo-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4348.128241133266!2d-16.268382523837328!3d28.56817178699925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cf266c1c4fa9%3A0x17b28381ae87e35e!2sRoque%20path%20Taborno!5e1!3m2!1sen!2sde!4v1745592610071!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-bodegas">
+          <div class="beach-photo" id="bodegas-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Taborno - Taborno Rock_9.webp"
+              alt="Playa del Roque de las Bodeguas"
+              id="bodegas-img"
+            />
+          </div>
+          <div class="beach-info" id="bodegas-info">
+            <h2 id="bodegas-title">Taborno Rock</h2>
+            <p id="bodegas-desc" class="accent">
+              Get to know this 3.9-km loop trail near Santa Cruz de Tenerife,
+              Tenerife. Generally considered a moderately challenging route.
+              This is a very popular area for hiking, so you'll likely encounter
+              other people while exploring. The trail is open year-round and is
+              beautiful to visit anytime.
+            </p>
+            <div class="hard-medium" id="hard-medium8">
+              <h3 class="trail-title color" id="hard8">Hard :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length8">Length:</span> 3.9 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation8"
+                    >Elevation Gain:</span
+                  >
+                  216 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="bodegas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d646.3464676028406!2d-16.266186976697114!3d28.56925643950313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cf25df976689%3A0x51f503dc53562c40!2sMirador%20Roque%20De%20Taborno!5e1!3m2!1sen!2sde!4v1745592652282!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-cueva">
+          <div class="beach-photo" id="cueva-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Sandero_10.webp"
+              alt="Playa Cueva del Agua"
+              id="cueva-img"
+            />
+          </div>
+          <div class="beach-info" id="cueva-info">
+            <h2 id="cueva-title">Sendero de los Sentidos</h2>
+            <p id="cueva-desc" class="accent">
+              Head out on this 1.3-km loop trail near Tegueste, Tenerife.
+              Generally considered a moderately challenging route, it takes an
+              average of 31 min to complete. This is a very popular area for
+              walking, so you'll likely encounter other people while exploring.
+              The trail is open year-round and is beautiful to visit anytime.
+            </p>
+            <div class="hard-medium" id="hard-medium9">
+              <h3 class="trail-title color" id="moderate9">Moderate :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length9">Length:</span> 1.3 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation9"
+                    >Elevation Gain:</span
+                  >
+                  182 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="cueva-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4349.664622312812!2d-16.282272423838357!3d28.53096838868451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41ce99ea6921d9%3A0xaccc9d670bfb141!2sSendero%20de%20los%20Sentidos!5e1!3m2!1sen!2sde!4v1745592687953!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-tejita">
+          <div class="beach-photo" id="tejita-photo">
+            <img
+              src="top_hiking_trails/hiking_trails/Santiago del Teide_11.webp"
+              alt="Playa de la Tejita"
+              id="tejita-img"
+            />
+          </div>
+          <div class="beach-info" id="tejita-info">
+            <h2 id="tejita-title">Santiago del Teide</h2>
+            <p id="tejita-desc" class="accent">
+              Check out this 8.9-km point-to-point trail near Santiago del
+              Teide, Tenerife. Generally considered a moderately challenging
+              route. This is a very popular area for hiking, so you'll likely
+              encounter other people while exploring. The best times to visit
+              this trail are November through April.
+            </p>
+            <div class="hard-medium" id="hard-medium10">
+              <h3 class="trail-title color" id="moderate10">Moderate :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length10">Length:</span> 8.9 km
+                </p>
+                <p>
+                  <span class="label color" id="elevation10"
+                    >Elevation Gain:</span
+                  >
+                  386 m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="tejita-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4358.632314097351!2d-16.8482389238438!3d28.312922798521473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a8a4ba2247adb%3A0x830057c0ec3005f9!2sMirador%20La%20Cruz%20de%20Hilda!5e1!3m2!1sen!2sde!4v1745592884543!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer">
+      <div class="footer-container" id="footer-container">
+        <!-- Column 1: Logo -->
+        <div class="footer-section logo-f" id="footer-logo-section">
+          <a href="/index.html" class="footer-logo" id="footer-logo"
+            >YourTrip</a
+          >
+        </div>
+
+        <!-- Column 2: Text Block -->
+        <div class="footer-section info" id="footer-info-section">
+          <h2 id="footer-info-title">Explore Tenerife</h2>
+          <p class="footer-thema" id="footer-info-description">
+            This website was made to help you explore Tenerife's best spots —
+            beaches, hikes, restaurants, and hidden gems — all in one place.
+            Just your ultimate island guide, no fluff.
+          </p>
+        </div>
+        <!-- Column 3: Contact -->
+        <div class="footer-section contact" id="footer-contact-section">
+          <h3 id="footer-contact-title">Contact</h3>
+          <ul id="footer-contact-list">
+            <li id="contact-email">
+              <a
+                class="footer-thema"
+                href="mailto:hello@exploretenerife.com"
+                id="footer-email"
+                >hello@exploretenerife.com</a
+              >
+            </li>
+            <li id="contact-instagram">
+              <a class="footer-thema" href="#" id="footer-instagram"
+                >Instagram</a
+              >
+            </li>
+            <li id="contact-facebook">
+              <a class="footer-thema" href="#" id="footer-facebook">Facebook</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" id="footer-bottom">
+        <p class="footer-thema" id="footer-copyright">
+          &copy; 2025 Explore Tenerife. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
