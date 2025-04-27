@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Discover the top 10 things to do in Tenerife—from beaches to volcanoes. Find the best activities for adventure, relaxation, and unforgettable memories."
+    />
+    <title>Discover Tenerifa Island&mdash;Your Ultimate Island Escape</title>
+    <link rel="icon" type="image/png" href="logo16x16.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="universal.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="hero-section" id="hero-section">
+      <div class="navbar" id="navbar">
+        <div class="logo" id="logo">YourTrip</div>
+        <nav id="main-nav">
+          <a class="accent" href="/index.html" id="home-link">Home </a>
+          <a class="accent" href="#site-footer" id="about-link">About</a>
+          <a class="accent" href="#" id="faq-link">Theme Switch</a>
+          <div class="dropdown" id="language-dropdown">
+            <button class="dropbtn accent" id="dropbtn">
+              <span class="accent" id="selected-language">Language ▾</span>
+              <img
+                id="language-flag"
+                src="lang_img/English_lang.png"
+                alt="Language Flag"
+              />
+            </button>
+            <div class="dropdown-content" id="dropdown-content">
+              <a class="accent" href="#" data-lang="en" id="english-lang">
+                <img src="lang_img/English_lang.png" alt="English" />
+                English
+              </a>
+              <a class="accent" href="#" data-lang="de" id="german-lang">
+                <img src="lang_img/German_lang.png" alt="German" />
+                Deutsch
+              </a>
+              <a class="accent" href="#" data-lang="es" id="spanish-lang">
+                <img src="lang_img/Spanish_lang.png" alt="Spanish" />
+                Español
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="header-text" id="header-text">
+        <div class="text-content" id="text-content">
+          <h3 class="accent" id="header-subtitle">Discover Tenerifa Island</h3>
+          <h1 class="accent" id="header-title">Top Places to Visit</h1>
+        </div>
+      </div>
+      <ul class="slides" id="slides">
+        <li id="slide-1"><span></span></li>
+        <li id="slide-2"><span></span></li>
+        <li id="slide-3"><span></span></li>
+        <li id="slide-4"><span></span></li>
+        <li id="slide-5"><span></span></li>
+        <li id="slide-6"><span></span></li>
+      </ul>
+    </header>
+    <section class="main-container" id="main-container">
+      <div id="sort-controls" class="sort-controls">
+        <button id="sortButton">Sort Places Alphabetically</button>
+      </div>
+      <div class="beaches-section" id="beaches-section">
+        <div class="beach-row" data-infra="yes" id="beach-medano">
+          <div class="beach-photo" id="medano-photo">
+            <img
+              src="top_places/places/san-cristobal-la-laguna-L.jpg"
+              alt="San cristobal la laguna"
+              id="medano-img"
+            />
+          </div>
+          <div class="beach-info" id="medano-info">
+            <h2 id="medano-title">San Cristobal La Laguna</h2>
+            <p id="medano-desc" class="accent">
+              San Cristobal La Laguna, a UNESCO World Heritage site, is a town
+              that impressed us deeply with its historic charm. Its wide cobbled
+              streets and colorful colonial buildings bear witness to a rich
+              past. We were transported back in time. The city is also home to
+              numerous churches and convents, including the majestic Cathedral
+              of Nuestra Señora de los Remedios.
+            </p>
+          </div>
+          <div class="beach-map" id="medano-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4351.398932316347!2d-16.318626723839454!3d28.488918690586722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cdb92e5579ad%3A0xae03debc6d44daf9!2sCathedral%20of%20San%20Crist%C3%B3bal%20de%20La%20Laguna!5e1!3m2!1sen!2sde!4v1745773270857!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-teresitas">
+          <div class="beach-photo" id="teresitas-photo">
+            <img
+              src="top_places/places/la-orotava.jpg"
+              alt="La Orotava"
+              id="teresitas-img"
+            />
+          </div>
+          <div class="beach-info" id="teresitas-info">
+            <h2 id="teresitas-title">La Orotava</h2>
+            <p id="teresitas-desc" class="accent">
+              La Orotava, nestled in a fertile valley, is an architectural gem,
+              with houses featuring finely crafted wooden balconies that bear
+              witness to a rich colonial past. The Casa de los Balcones is a
+              remarkable example of traditional Canarian architecture. She
+              charmed us. The town offers a mix of gardens, churches and
+              historic buildings.
+            </p>
+          </div>
+          <div class="beach-map" id="teresitas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1088.8739449986235!2d-16.523168173241366!3d28.389360840096806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc402ab1fde8f48d%3A0x647b5ee022551bbf!2sMarquesado%20de%20la%20Quinta%20Roja%20Garden!5e1!3m2!1sen!2sde!4v1745773532002!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-duque">
+          <div class="beach-photo" id="duque-photo">
+            <img
+              src="top_places/places/masca-1-L.jpg"
+              alt="Masca"
+              id="duque-img"
+            />
+          </div>
+          <div class="beach-info" id="duque-info">
+            <h2 id="duque-title">Masca</h2>
+            <p id="duque-desc" class="accent">
+              Now here’s a completely different experience. Masca is a tiny
+              village perched in the Teno mountains. It’s the most picturesque
+              in Tenerife. We were captivated by its spectacular location,
+              nestled in a landscape of vertiginous gorges. In addition to the
+              spectacular scenery, the traditional stone houses, clinging to the
+              mountainside, are charming.
+            </p>
+          </div>
+          <div class="beach-map" id="duque-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1413.2179979232576!2d-16.840919020418948!3d28.304919260261563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a8bca1c3b1c03%3A0xd593c7a7492d5fe3!2sPl.%20de%20Masca%2C%2049%2C%2038489%20Masca%2C%20Santa%20Cruz%20de%20Tenerife%2C%20Spain!5e1!3m2!1sen!2sde!4v1745773660736!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-jimenez">
+          <div class="beach-photo" id="jimenez-photo">
+            <img
+              src="top_places/places/puerto-de-la-cruz-L.jpg"
+              alt=" Puerto de la Cruz"
+              id="jimenez-img"
+            />
+          </div>
+          <div class="beach-info" id="jimenez-info">
+            <h2 id="jimenez-title">Puerto de la Cruz</h2>
+            <p id="jimenez-desc" class="accent">
+              Puerto de la Cruz, a historic seaside resort in northern Tenerife,
+              harmoniously combines colonial charm with modern attractions. We
+              were seduced by the relaxed atmosphere of its historic center and
+              waterfront. Between gardens, churches, typical houses and street
+              art, you can sit on the terraces of many cafés to enjoy this
+              unique mix.
+            </p>
+          </div>
+          <div class="beach-map" id="jimenez-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2177.1788960108356!2d-16.551369588181622!3d28.4170472498821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a7f004e380d89%3A0xb299d3d3c392d2f7!2sPlaza%20del%20Charco!5e1!3m2!1sen!2sde!4v1745773789926!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-camison">
+          <div class="beach-photo" id="camison-photo">
+            <img
+              src="top_places/places/Candelaria-2-L.jpg"
+              alt="Candelaria"
+              id="camison-img"
+            />
+          </div>
+          <div class="beach-info" id="camison-info">
+            <h2 id="camison-title">Candelaria</h2>
+            <p id="camison-desc" class="accent">
+              Candelaria, famous for its imposing basilica dedicated to the
+              Virgin of Candelaria, patron saint of the Canary Islands, is an
+              essential place of pilgrimage. It really is at the heart of the
+              city and its culture. This oceanfront basilica is adorned with
+              monumental statues representing the Guanche kings. We also
+              particularly enjoyed the promenade along the waterfront, with its
+              statues and black sandy beach.
+            </p>
+          </div>
+          <div class="beach-map" id="camison-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1831.9216603723678!2d-16.369982175604342!3d28.351055819230268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc402d95f77bb14f%3A0xa85d8a60c85b2c4!2sBasilica%20of%20Our%20Lady%20of%20Candelaria!5e1!3m2!1sen!2sde!4v1745773898491!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-guios">
+          <div class="beach-photo" id="guios-photo">
+            <img
+              src="top_places/places/Vilaflor-iglesia-L.jpg"
+              alt="Vilaflor"
+              id="guios-img"
+            />
+          </div>
+          <div class="beach-info" id="guios-info">
+            <h2 id="guios-title">Vilaflor</h2>
+            <p id="guios-desc" class="accent">
+              Vilaflor, in the hills above Tenerife, offers a magnificent
+              natural setting. Surrounded by pine forests, it is the ideal
+              starting point for numerous hikes in the Teide National Park. We
+              were charmed by the peaceful atmosphere of its narrow streets. The
+              17th-century church of San Pedro is the historic heart of the
+              village. And wine lovers will appreciate the surrounding
+              vineyards.
+            </p>
+          </div>
+          <div class="beach-map" id="guios-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6540.215962888469!2d-16.638734755999533!3d28.155428228790544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9b78f07a44db%3A0x4c0d623a565d76ff!2s38613%20Vilaflor%2C%20Santa%20Cruz%20de%20Tenerife%2C%20Spain!5e1!3m2!1sen!2sde!4v1745774028481!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-gaviotas">
+          <div class="beach-photo" id="gaviotas-photo">
+            <img
+              src="top_places/places/garachico-L.jpg"
+              alt="Garachico"
+              id="gaviotas-img"
+            />
+          </div>
+          <div class="beach-info" id="gaviotas-info">
+            <h2 id="gaviotas-title">Garachico</h2>
+            <p id="gaviotas-desc" class="accent">
+              Garachico, the former capital of Tenerife, is a town that won us
+              over with its historic charm and natural surroundings. It was
+              rebuilt after a volcanic eruption in the 18th century. We loved
+              the combination of the few historic buildings with the view of the
+              cliffs and lava formations. By the sea, this creates natural
+              pools.
+            </p>
+          </div>
+          <div class="beach-map" id="gaviotas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6915.034073186517!2d-16.7668990996141!3d28.372251207308693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a62846a5f860b%3A0xece9e1aeb7cea23c!2sGarachico%2C%20Santa%20Cruz%20de%20Tenerife%2C%20Spain!5e1!3m2!1sen!2sde!4v1745774138140!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-benijo">
+          <div class="beach-photo" id="benijo-photo">
+            <img
+              src="top_places/places/santa-cruz-tenerife-L.jpg"
+              alt="santa Cruz de Tenerife"
+              id="benijo-img"
+            />
+          </div>
+          <div class="beach-info" id="benijo-info">
+            <h2 id="benijo-title">Santa Cruz de Tenerife</h2>
+            <p id="benijo-desc" class="accent">
+              Santa Cruz de Tenerife, the island’s capital, is a dynamic city
+              offering a blend of modernity and tradition. From one neighborhood
+              to the next, the experience varies greatly. We particularly
+              enjoyed the Tenerife auditorium, designed by Santiago Calatrava.
+              This architectural masterpiece dominates the waterfront.
+            </p>
+          </div>
+          <div class="beach-map" id="benijo-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8705.555545457144!2d-16.252539125545713!3d28.455447011209188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cc9e1d24150d%3A0x11354b61686bd171!2sAuditorio%20de%20Tenerife%20Ad%C3%A1n%20Mart%C3%ADn!5e1!3m2!1sen!2sde!4v1745774297148!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-bodegas">
+          <div class="beach-photo" id="bodegas-photo">
+            <img
+              src="top_places/places/iglesia-L.jpg"
+              alt="Icod de los vinos"
+              id="bodegas-img"
+            />
+          </div>
+          <div class="beach-info" id="bodegas-info">
+            <h2 id="bodegas-title">Icod de los Vinos</h2>
+            <p id="bodegas-desc" class="accent">
+              Icod de los Vinos is famous for its thousand-year-old dragon tree.
+              But it’s also a dynamic city with other tourist attractions, but
+              full of locals. The historic heart of the town has well-preserved
+              colonial buildings, and the park around the Drago Milenario offers
+              an enchanting interlude.
+            </p>
+          </div>
+          <div class="beach-map" id="bodegas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14653.330674680885!2d-16.725347023197184!3d28.365851651830866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a87fe3e4fe6b9%3A0x97ae382934e71374!2sDrago%20de%20Icod%20de%20los%20Vinos!5e1!3m2!1sen!2sde!4v1745774482276!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-cueva">
+          <div class="beach-photo" id="cueva-photo">
+            <img
+              src="top_places/places/Punta-de-teno-L.jpg"
+              alt="Buenavista"
+              id="cueva-img"
+            />
+          </div>
+          <div class="beach-info" id="cueva-info">
+            <h2 id="cueva-title">Buenavista</h2>
+            <p id="cueva-desc" class="accent">
+              Buenavista is a quiet little town with colorful houses and a
+              pretty church. Above all, it is the gateway to the Punta de Teno
+              volcanic zone at the foot of the giant cliffs. The combination of
+              landscapes is magnificent.
+            </p>
+          </div>
+          <div class="beach-map" id="cueva-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4357.44044864549!2d-16.92556772384306!3d28.341991097213917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6af556562cd973%3A0xb33fd69dba7b64b8!2sPunta%20de%20Teno!5e1!3m2!1sen!2sde!4v1745774585746!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-tejita">
+          <div class="beach-photo" id="tejita-photo">
+            <img
+              src="top_places/places/ugur-arpaci-U18V0ToioFU-unsplash-scaled-e1677163604470.jpg"
+              alt="Tenerife Carnival"
+              id="tejita-img"
+            />
+          </div>
+          <div class="beach-info" id="tejita-info">
+            <h2 id="tejita-title">Tenerife Carnival</h2>
+            <p id="tejita-desc" class="accent">
+              Tenerife Carnival has three events that you really shouldn’t miss:
+              the gala to select the Carnival Queen, where contestants compete
+              in terms of glamour and imaginative costume to achieve a place of
+              honour; the Cabalgata [Procession], in which the people take part
+              in their finest costumes; and the Coso, the grand procession along
+              the seafront, with carnival queens and their maids of honour,
+              floats and music groups. A spectacular climax, and not to be
+              missed if you want a great time.
+            </p>
+          </div>
+          <div class="beach-map" id="tejita-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2587.9062238941965!2d-16.24786518073963!3d28.466511754620875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cb7c63324a55%3A0x24588096f43e1b34!2sCastillo%20de%20San%20Cristobal!5e1!3m2!1sen!2sde!4v1745774786302!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer">
+      <div class="footer-container" id="footer-container">
+        <!-- Column 1: Logo -->
+        <div class="footer-section logo-f" id="footer-logo-section">
+          <a href="/index.html" class="footer-logo" id="footer-logo"
+            >YourTrip</a
+          >
+        </div>
+
+        <!-- Column 2: Text Block -->
+        <div class="footer-section info" id="footer-info-section">
+          <h2 id="footer-info-title">Explore Tenerife</h2>
+          <p class="footer-thema" id="footer-info-description">
+            This website was made to help you explore Tenerife's best spots —
+            beaches, hikes, restaurants, and hidden gems — all in one place.
+            Just your ultimate island guide, no fluff.
+          </p>
+        </div>
+        <!-- Column 3: Contact -->
+        <div class="footer-section contact" id="footer-contact-section">
+          <h3 id="footer-contact-title">Contact</h3>
+          <ul id="footer-contact-list">
+            <li id="contact-email">
+              <a
+                class="footer-thema"
+                href="mailto:hello@exploretenerife.com"
+                id="footer-email"
+                >hello@exploretenerife.com</a
+              >
+            </li>
+            <li id="contact-instagram">
+              <a class="footer-thema" href="#" id="footer-instagram"
+                >Instagram</a
+              >
+            </li>
+            <li id="contact-facebook">
+              <a class="footer-thema" href="#" id="footer-facebook">Facebook</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" id="footer-bottom">
+        <p class="footer-thema" id="footer-copyright">
+          &copy; 2025 Explore Tenerife. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
