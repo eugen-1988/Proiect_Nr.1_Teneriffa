@@ -37,14 +37,11 @@ new Swiper(".card-wrapper", {
 const navbar = document.querySelector(".navbar");
 let hasUserScrolled = false;
 let texts;
-// Hier wird die Navigationsleiste (Navbar) im DOM ausgewählt (navbar).
-//Eine Variable hasUserScrolled wird initialisiert, um zu überprüfen, ob der Benutzer nach unten gescrollt hat.
-
+// Listen for user scroll interaction
 function onUserScroll() {
   hasUserScrolled = true;
   checkScroll();
 }
-//onUserScroll wird aufgerufen, wenn der Benutzer scrollt. Es setzt hasUserScrolled auf true und ruft die Funktion checkScroll auf.
 
 function checkScroll() {
   if (hasUserScrolled && window.scrollY > 50) {
@@ -53,12 +50,8 @@ function checkScroll() {
     navbar.classList.remove("scrolled");
   }
 }
-//In der Funktion checkScroll wird überprüft, ob der Benutzer mehr als 50 Pixel gescrollt hat.
-//Wenn ja, wird der Klasse scrolled zur Navbar hinzugefügt, um sie visuell zu verändern.
-//Wenn nicht, wird die Klasse entfernt.
 
 window.addEventListener("scroll", onUserScroll);
-//Der scroll-Event wird auf das Fenster angewendet, sodass jedes Scrollen die onUserScroll-Funktion auslöst.
 
 // ==========>>>>              Scrolled Navbar           <<<<=========== //
 
@@ -66,37 +59,36 @@ window.addEventListener("scroll", onUserScroll);
 
 document.getElementById("faq-link").addEventListener("click", function (e) {
   e.preventDefault();
-  //Wenn der Benutzer auf den FAQ-Link klickt, wird das Standard-Thema auf das alternative Thema umgeschaltet (alternate-theme).
 
+  // Toggle theme class on body
   document.body.classList.toggle("alternate-theme");
 
+  // Optional: Save preference (remove if not needed)
   localStorage.setItem(
     "altTheme",
     document.body.classList.contains("alternate-theme")
   );
 });
-//localStorage speichert die Präferenz des Benutzers, sodass das Thema auch beim nächsten Laden der Seite beibehalten wird.
 
+// Optional: Load saved preference
 if (localStorage.getItem("altTheme") === "true") {
   document.body.classList.add("alternate-theme");
 }
-//Beim Laden der Seite wird überprüft, ob der Benutzer das alternative Thema zuvor gewählt hat. Wenn ja, wird es wieder aktiviert.
 
 // ==========>>>>             ThemeSwitch         <<<<=========== //
 
 // ==========>>>>             Sprache wechseln          <<<<=========== //
 document.addEventListener("DOMContentLoaded", function () {
-  // Definieren Sie die Sprachkonfiguration: Sprachname, Flaggenbild, Schaltflächentexte.
-
+  // Language configuration with button texts
   const languageConfig = {
     en: {
       name: "English",
       flag: "English_lang.png",
       code: "en",
       filterButton: "Filter: Show All",
-      sortButton: "Sort Beaches Alphabetically",
-      filterYes: "Filter: With Infrastructure",
-      filterNo: "Filter: Without Infrastructure",
+      sortButton: "Sort  Alphabetically",
+      filterYes: "Filter: with vegetarian dishes",
+      filterNo: "Filter: without vegetarian dishes",
       sortDefault: "Default Order",
     },
     de: {
@@ -104,9 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
       flag: "German_lang.png",
       code: "de",
       filterButton: "Filter: Alle anzeigen",
-      sortButton: "Strände alphabetisch sortieren",
-      filterYes: "Mit Infrastruktur",
-      filterNo: "Ohne Infrastruktur",
+      sortButton: " alphabetisch sortieren",
+      filterYes: "mit vegetarischen Gerichten",
+      filterNo: "ohne vegetarische Gerichte",
       sortDefault: "Standard Reihenfolge",
     },
     es: {
@@ -114,22 +106,19 @@ document.addEventListener("DOMContentLoaded", function () {
       flag: "Spanish_lang.png",
       code: "es",
       filterButton: "Filtro: Mostrar todo",
-      sortButton: "Ordenar playas alfabéticamente",
-      filterYes: "Con Infraestructura",
-      filterNo: "Sin Infraestructura",
+      sortButton: "Ordenar  alfabéticamente",
+      filterYes: "con platos vegetarianos",
+      filterNo: "sin platos vegetarianos",
       sortDefault: "Orden Predeterminado",
     },
   };
-  //languageConfig enthält die Sprachdaten (Englisch, Deutsch, Spanisch) wie Name der Sprache, Flaggenbild, Sprachcode und Text für Schaltflächen.
 
   let currentLang = localStorage.getItem("language") || "en";
   let texts = {};
   let isSorted = false;
   let currentFilter = "all";
-  // currentLang speichert die aktuelle Sprache aus localStorage oder setzt sie standardmäßig auf Englisch (en).
-  //texts wird später verwendet, um die Übersetzungen zu speichern.
-  //isSorted und currentFilter sind für die Sortierung und Filterung von Inhalten zuständig.
 
+  // Load translations
   fetch("data.json")
     .then((response) => response.json())
     .then((translations) => {
@@ -138,26 +127,25 @@ document.addEventListener("DOMContentLoaded", function () {
       setupLanguageDropdown(translations, languageConfig);
     })
     .catch((error) => console.error("Error loading translations:", error));
-  // Hier wird die data.json-Datei geladen, die die Übersetzungen enthält. Nach dem erfolgreichen Laden werden die Übersetzungen und die Sprachumschaltung aufgerufen.
 
+  // Dropdown toggle
   document.getElementById("dropbtn").addEventListener("click", function (e) {
     e.stopPropagation();
     document.getElementById("dropdown-content").classList.toggle("show");
   });
-  //Wenn der Benutzer auf das Dropdown-Menü klickt, wird das Menü angezeigt oder ausgeblendet.
 
   document.addEventListener("click", function () {
     document.getElementById("dropdown-content").classList.remove("show");
   });
-  //Wenn der Benutzer außerhalb des Dropdown-Menüs klickt, wird das Menü geschlossen.
 
   function changeLanguage(langCode, translations, configData) {
     currentLang = langCode;
     const langData = translations[langCode];
     const config = configData[langCode];
-    if (!langData || !config) return;
-    //Die changeLanguage-Funktion ändert die Sprache der Seite basierend auf dem langCode, indem sie die entsprechenden Übersetzungen und Konfigurationsdaten verwendet.
 
+    if (!langData || !config) return;
+
+    // Update language selection
     document.getElementById("selected-language").textContent = config.name;
     const flag = document.getElementById("language-flag");
     flag.src = `lang_img/${config.flag}`;
@@ -198,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
       : config.sortButton;
   }
 
-  // Beach Section logic
+  // Filter Section logic
   const sortButton = document.getElementById("sortButton");
   const filterOptions = document.getElementById("filterOptions");
   const beachSection = document.querySelector(".beaches-section");

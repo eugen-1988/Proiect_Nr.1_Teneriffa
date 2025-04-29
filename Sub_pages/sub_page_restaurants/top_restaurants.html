@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Discover the top 10 things to do in Tenerife—from beaches to volcanoes. Find the best activities for adventure, relaxation, and unforgettable memories."
+    />
+    <title>Discover Tenerifa Island&mdash;Your Ultimate Island Escape</title>
+    <link rel="icon" type="image/png" href="logo16x16.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="universal.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="hero-section" id="hero-section">
+      <div class="navbar" id="navbar">
+        <div class="logo" id="logo">YourTrip</div>
+        <nav id="main-nav">
+          <a class="accent" href="/index.html" id="home-link">Home </a>
+          <a class="accent" href="#site-footer" id="about-link">About</a>
+          <a class="accent" href="#" id="faq-link">Theme Switch</a>
+          <div class="dropdown" id="language-dropdown">
+            <button class="dropbtn accent" id="dropbtn">
+              <span class="accent" id="selected-language">Language ▾</span>
+              <img
+                id="language-flag"
+                src="lang_img/English_lang.png"
+                alt="Language Flag"
+              />
+            </button>
+            <div class="dropdown-content" id="dropdown-content">
+              <a class="accent" href="#" data-lang="en" id="english-lang">
+                <img src="lang_img/English_lang.png" alt="English" />
+                English
+              </a>
+              <a class="accent" href="#" data-lang="de" id="german-lang">
+                <img src="lang_img/German_lang.png" alt="German" />
+                Deutsch
+              </a>
+              <a class="accent" href="#" data-lang="es" id="spanish-lang">
+                <img src="lang_img/Spanish_lang.png" alt="Spanish" />
+                Español
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="header-text" id="header-text">
+        <div class="text-content" id="text-content">
+          <h3 class="accent" id="header-subtitle">Discover Tenerifa Island</h3>
+          <h1 class="accent" id="header-title">Top Restaurants in Tenerife</h1>
+        </div>
+      </div>
+      <ul class="slides" id="slides">
+        <li id="slide-1"><span></span></li>
+        <li id="slide-2"><span></span></li>
+        <li id="slide-3"><span></span></li>
+        <li id="slide-4"><span></span></li>
+        <li id="slide-5"><span></span></li>
+        <li id="slide-6"><span></span></li>
+      </ul>
+    </header>
+    <section class="main-container" id="main-container">
+      <div id="sort-controls" class="sort-controls">
+        <div class="dropdown" id="filter-dropdown">
+          <button id="filterDropdownButton" class="filter-button">
+            Filter
+          </button>
+          <div class="dropdown-content-filter" id="filterOptions">
+            <a href="#" data-infra="all" id="filter-all">Show All</a>
+            <a href="#" data-infra="yes" id="filter-yes"
+              >with vegetarian dishes</a
+            >
+            <a href="#" data-infra="no" id="filter-no"
+              >without vegetarian dishes</a
+            >
+          </div>
+        </div>
+        <button id="sortButton">Sort Restaurants Alphabetically</button>
+      </div>
+      <div class="beaches-section" id="beaches-section">
+        <div class="beach-row" data-infra="no" id="beach-medano">
+          <div class="beach-photo" id="medano-photo">
+            <img
+              src="top_restaurants/restaurants/Seen_byOlivier_tenerife.jpg"
+              alt="Seen byOlivier tenerife"
+              id="medano-img"
+            />
+          </div>
+          <div class="beach-info" id="medano-info">
+            <h2 id="medano-title">Seen By Olivier Tenerife</h2>
+            <p id="medano-desc" class="accent">
+              Positive vibes and delightful surprises are ready to be discovered
+              at SEEN Beach Club by Olivier Tenerife - the place to be by the
+              sea. Throughout the day, you can savour a leisurely swim and, in
+              the evening, have fun in a lively atmosphere. With a menu designed
+              for sharing delights with friends or enjoying the best fish and
+              meat on the island.
+            </p>
+            <div class="hard-medium" id="hard-medium">
+              <h3 class="trail-title color" id="moderate">Menu :</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length"> Seafood </span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation"> Mediterranean</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="medano-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d668.2605654424887!2d-16.74989218128885!3d28.095166997145952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a91187a33e8ef%3A0x8a0fff12aa96d723!2sSEEN%20by%20Olivier%2C%20Tenerife!5e1!3m2!1sen!2sde!4v1745828633223!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-teresitas">
+          <div class="beach-photo" id="teresitas-photo">
+            <img
+              src="top_restaurants/restaurants/Brunellis_steakhouse.jpg"
+              alt="Brunelli's Steakhouse"
+              id="teresitas-img"
+            />
+          </div>
+          <div class="beach-info" id="teresitas-info">
+            <h2 id="teresitas-title">Brunelli's Steakhouse</h2>
+            <p id="teresitas-desc" class="accent">
+              The best steakhouse on this side of the Atlantic, with the most
+              amazing views of the ocean. Our meats, are crispy on the outside
+              and tender on the inside, cooked at 800ºC in our Southbend Grill,
+              unique in the Canary Islands. A splendid steakhouse located close
+              to the entrance to the Loro Parque zoo.
+            </p>
+            <div class="hard-medium" id="hard-medium1">
+              <h3 class="trail-title color" id="moderate1">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length1"> American</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation1"> Steakhouse</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="teresitas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d499.1555053774695!2d-16.566344901195553!3d28.409611851219893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a7fc6fac86ef5%3A0x2ef366b33d73c527!2sBrunelli&#39;s!5e1!3m2!1sen!2sde!4v1745828801439!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-duque">
+          <div class="beach-photo" id="duque-photo">
+            <img
+              src="top_restaurants/restaurants/El_Guanche.jpg"
+              alt="El Guanche"
+              id="duque-img"
+            />
+          </div>
+          <div class="beach-info" id="duque-info">
+            <h2 id="duque-title">El Guanche</h2>
+            <p id="duque-desc" class="accent">
+              Family Restaurant, since 1971. Traditional Canarian cuisine
+              Vegetarian fusion. 90% Vegetarian. More than a lunch we offer you
+              a culinary experience as you have never lived, in a unique place
+              that offers the Masca Valley. Lovely Restaurant and fantastic
+              homemade food.
+            </p>
+            <div class="hard-medium" id="hard-medium2">
+              <h3 class="trail-title color" id="hard">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length2">
+                    Spanish Cuisines</span
+                  >
+                </p>
+                <p>
+                  <span class="label color" id="elevation2">
+                    Vegetarian friendly
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="duque-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1295.9295472450335!2d-16.84161330913776!3d28.304676589947793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a8bca01ca6b23%3A0x8865e9ab15e48df5!2sRestaurante%20%22El%20Guanche%20%22%20Alte%20Schule!5e1!3m2!1sen!2sde!4v1745829131244!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-jimenez">
+          <div class="beach-photo" id="jimenez-photo">
+            <img
+              src="top_restaurants/restaurants/La_torre_del_Mirador.jpg"
+              alt=" La Torre Del Mirador"
+              id="jimenez-img"
+            />
+          </div>
+          <div class="beach-info" id="jimenez-info">
+            <h2 id="jimenez-title">La Torre Del Mirador</h2>
+            <p id="jimenez-desc" class="accent">
+              La Torre Del Mirador garners praise for its scenic location and
+              breathtaking views, creating a fine dining atmosphere that many
+              guests find justifies the premium prices. While the restaurant's
+              ambiance, enhanced by live music and elegant decor, is frequently
+              celebrated, the food quality receives mixed reviews—some visitors
+              relish the fresh seafood, yet others question the value due to
+              inconsistent preparation.
+            </p>
+            <div class="hard-medium" id="hard-medium3">
+              <h3 class="trail-title color" id="hard3">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length3"> Seafood</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation3">
+                    Vegetarian friendly</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="jimenez-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d500.64417606222315!2d-16.744524974182365!3d28.09207410919787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a974b7c046001%3A0x2424abec0d46e934!2sLa%20Torre%20del%20Mirador!5e1!3m2!1sen!2sde!4v1745831264863!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-camison">
+          <div class="beach-photo" id="camison-photo">
+            <img
+              src="top_restaurants/restaurants/sal-fina.jpg"
+              alt="Sal Fina"
+              id="camison-img"
+            />
+          </div>
+          <div class="beach-info" id="camison-info">
+            <h2 id="camison-title">Sal Fina</h2>
+            <p id="camison-desc" class="accent">
+              Sal Fina restaurant has won the hearts of many diners with its
+              eclectic menu that garners praise for burgers and Italian cuisine,
+              though a few have noted a scarcity of Italian options and
+              occasional lapses in dish preparation. Guests have called out the
+              amiable and careful staff, suggesting reservations to navigate its
+              popularity and at times, lengthy service.
+            </p>
+            <div class="hard-medium" id="hard-medium4">
+              <h3 class="trail-title color" id="moderate4">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length4">
+                    Italian, Mediterranean</span
+                  >
+                </p>
+                <p>
+                  <span class="label color" id="elevation4">
+                    Vegetarian friendly</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="camison-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1299.0071282847566!2d-16.719312409288055!3d28.050984050616883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9976703a61f3%3A0x9981d50274993c02!2sSal%20Fina!5e1!3m2!1sen!2sde!4v1745831401523!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-guios">
+          <div class="beach-photo" id="guios-photo">
+            <img
+              src="top_restaurants/restaurants/la-trattoria-by-il-bocconcino.jpg"
+              alt="Trattoría By Royal Hideaway"
+              id="guios-img"
+            />
+          </div>
+          <div class="beach-info" id="guios-info">
+            <h2 id="guios-title">Trattoría By Royal Hideaway</h2>
+            <p id="guios-desc" class="accent">
+              Trattoria is a word that comes from "trattore", which means to
+              prepare. At the new Trattoria by Il Bocconcino, we prepare our
+              dishes the way Italian mammas cooked them; Homemade pastas and
+              sauces, antipasti, foccacias and delicious pizzas baked by our
+              master pizza maker in a wood-fired oven. All this in a relaxed and
+              informal atmosphere ideal for sharing and enjoying with the
+              family.
+            </p>
+            <div class="hard-medium" id="hard-medium5">
+              <h3 class="trail-title color" id="hard5">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length5"> Italian Cusines</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation5">
+                    Vegetarian friendly</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="guios-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.8471221976433!2d-16.753437976716594!3d28.09925132196348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a910a3779d389%3A0xa23ab52525c820e1!2sIl%20Bocconcino%20by%20Royal%20Hideaway!5e1!3m2!1sen!2sde!4v1745831618874!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-gaviotas">
+          <div class="beach-photo" id="gaviotas-photo">
+            <img
+              src="top_restaurants/restaurants/Ibericos_gastro_bar.jpg"
+              alt="Ibéricos Gastro Bar"
+              id="gaviotas-img"
+            />
+          </div>
+          <div class="beach-info" id="gaviotas-info">
+            <h2 id="gaviotas-title">Ibéricos Gastro Bar</h2>
+            <p id="gaviotas-desc" class="accent">
+              Iberian specialties, as well as different food options, a variety
+              of wines, delicious cocktails, among other drinks, a good
+              atmosphere and excellent service. Ibéricos Gastro Bar emerges as a
+              beloved spot for its exceptional balance of value and quality,
+              with many patrons recommending reservations to secure a taste of
+              their generous, well-spiced dishes like the acclaimed Iberian pork
+              and ham risotto.
+            </p>
+            <div class="hard-medium" id="hard-medium6">
+              <h3 class="trail-title color" id="hard6">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length6"> Mediterranean</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation6">
+                    Vegetarian friendly</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="gaviotas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d647.2813157091158!2d-16.547709255247362!3d28.41669433191016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a7fc610ee9805%3A0x365adf99be3cc353!2sIb%C3%A9ricos%20Gastro-bar!5e1!3m2!1sen!2sde!4v1745831834610!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="no" id="beach-benijo">
+          <div class="beach-photo" id="benijo-photo">
+            <img
+              src="top_restaurants/restaurants/The_bank_steak_house.jpg"
+              alt="The Bank Steak House"
+              id="benijo-img"
+            />
+          </div>
+          <div class="beach-info" id="benijo-info">
+            <h2 id="benijo-title">The Bank Steak House</h2>
+            <p id="benijo-desc" class="accent">
+              The Bank, the restaurant that offers you a unique dining
+              experience the Hotel Villa Cortes, located in Playa de las
+              Americas! Prepare to delight your palate with our unique
+              contemporary approach to an East Coast-inspired steakhouse. While
+              some reviewers mention the steep prices, many agree that the
+              attentive service and flavorful, perfectly prepared steaks justify
+              the cost.
+            </p>
+            <div class="hard-medium" id="hard-medium7">
+              <h3 class="trail-title color" id="hard7">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length7"> American</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation7"> Steakhouse</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="benijo-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1298.9484658730055!2d-16.73550501223664!3d28.055839510632833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a97191806a8f3%3A0x6e0124ecba08da43!2sThe%20Bank%20Steakhouse!5e1!3m2!1sen!2sde!4v1745832070306!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-bodegas">
+          <div class="beach-photo" id="bodegas-photo">
+            <img
+              src="top_restaurants/restaurants/el-rinconcito-de-hilario.jpg"
+              alt="El Rinconcito De Hilario"
+              id="bodegas-img"
+            />
+          </div>
+          <div class="beach-info" id="bodegas-info">
+            <h2 id="bodegas-title">El Rinconcito De Hilario</h2>
+            <p id="bodegas-desc" class="accent">
+              I have been to this restaurant and I came out fully satisfied!
+              Everything was really very good, from the first to the second, to
+              the desserts. Portions are plentiful, so you come out full and
+              happy. The staff is friendly and attentive, and the welcoming
+              atmosphere makes the experience even more enjoyable. Definitely a
+              place to come back!
+            </p>
+            <div class="hard-medium" id="hard-medium8">
+              <h3 class="trail-title color" id="hard8">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length8"> Seafood</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation8">
+                    Vegetarian friendly</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="bodegas-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d668.3274747303548!2d-16.60725201311704!3d28.084419016394897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9fe9db3d6075%3A0x20521f9ab5a48656!2sEl%20Rinconcito%20de%20Hilario!5e1!3m2!1sen!2sde!4v1745832313003!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-cueva">
+          <div class="beach-photo" id="cueva-photo">
+            <img
+              src="top_restaurants/restaurants/guannabi.jpg"
+              alt="Guannabí"
+              id="cueva-img"
+            />
+          </div>
+          <div class="beach-info" id="cueva-info">
+            <h2 id="cueva-title">Guannabí</h2>
+            <p id="cueva-desc" class="accent">
+              Guannabí is a restaurant located in the old town of Santa Cruz de
+              Tenerife, in an old and typical Canarian house that has been
+              completely renovated achieving a modern and cosmopolitan design,
+              but respecting and maintaining the charm of the rustic and old. It
+              is a place that welcomes you with just entering and added to a
+              menu prepared with great care thus achieving a fusion between
+              Mediterranean cuisine with nuances of Mexican, Peruvian and Asian
+              cuisine.
+            </p>
+            <div class="hard-medium" id="hard-medium9">
+              <h3 class="trail-title color" id="moderate9">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length9"> Mediterranean</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation9"
+                    >Vegetarian friendly</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="cueva-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d863.6222527099011!2d-16.2509566312034!3d28.46502293852705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cb7d6cd29427%3A0xf76739278ea1484a!2sRestaurante%20Guannab%C3%AD!5e1!3m2!1sen!2sde!4v1745832612259!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="beach-row" data-infra="yes" id="beach-tejita">
+          <div class="beach-photo" id="tejita-photo">
+            <img
+              src="top_restaurants/restaurants/el_gomero.jpg"
+              alt="El Gomero"
+              id="tejita-img"
+            />
+          </div>
+          <div class="beach-info" id="tejita-info">
+            <h2 id="tejita-title">El Gomero</h2>
+            <p id="tejita-desc" class="accent">
+              Fantastic little restaurant where the locals go, including cops
+              and cab drivers! Its between los christianos and playa de las
+              americas. Lovely local Spanish food. Great variety on the menu and
+              food was so tasty. Waiters was so nice and friendly. Very good
+              variety and quality of products, fast service and all the
+              welcoming and friendly staff.
+            </p>
+            <div class="hard-medium" id="hard-medium10">
+              <h3 class="trail-title color" id="moderate10">Menu</h3>
+              <div class="trail-details">
+                <p>
+                  <span class="label color" id="length10"> Mediterranean</span>
+                </p>
+                <p>
+                  <span class="label color" id="elevation10">
+                    Vegetarian friendly</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="beach-map" id="tejita-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d649.4022261580905!2d-16.726939415832693!3d28.067756171666357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9763c7065309%3A0xd1aba9cb99fcf093!2sEl%20Gomero!5e1!3m2!1sen!2sde!4v1745833058155!5m2!1sen!2sde"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer">
+      <div class="footer-container" id="footer-container">
+        <!-- Column 1: Logo -->
+        <div class="footer-section logo-f" id="footer-logo-section">
+          <a href="/index.html" class="footer-logo" id="footer-logo"
+            >YourTrip</a
+          >
+        </div>
+
+        <!-- Column 2: Text Block -->
+        <div class="footer-section info" id="footer-info-section">
+          <h2 id="footer-info-title">Explore Tenerife</h2>
+          <p class="footer-thema" id="footer-info-description">
+            This website was made to help you explore Tenerife's best spots —
+            beaches, hikes, restaurants, and hidden gems — all in one place.
+            Just your ultimate island guide, no fluff.
+          </p>
+        </div>
+        <!-- Column 3: Contact -->
+        <div class="footer-section contact" id="footer-contact-section">
+          <h3 id="footer-contact-title">Contact</h3>
+          <ul id="footer-contact-list">
+            <li id="contact-email">
+              <a
+                class="footer-thema"
+                href="mailto:hello@exploretenerife.com"
+                id="footer-email"
+                >hello@exploretenerife.com</a
+              >
+            </li>
+            <li id="contact-instagram">
+              <a class="footer-thema" href="#" id="footer-instagram"
+                >Instagram</a
+              >
+            </li>
+            <li id="contact-facebook">
+              <a class="footer-thema" href="#" id="footer-facebook">Facebook</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" id="footer-bottom">
+        <p class="footer-thema" id="footer-copyright">
+          &copy; 2025 Explore Tenerife. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>

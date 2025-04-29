@@ -37,14 +37,11 @@ new Swiper(".card-wrapper", {
 const navbar = document.querySelector(".navbar");
 let hasUserScrolled = false;
 let texts;
-// Hier wird die Navigationsleiste (Navbar) im DOM ausgewählt (navbar).
-//Eine Variable hasUserScrolled wird initialisiert, um zu überprüfen, ob der Benutzer nach unten gescrollt hat.
-
+// Listen for user scroll interaction
 function onUserScroll() {
   hasUserScrolled = true;
   checkScroll();
 }
-//onUserScroll wird aufgerufen, wenn der Benutzer scrollt. Es setzt hasUserScrolled auf true und ruft die Funktion checkScroll auf.
 
 function checkScroll() {
   if (hasUserScrolled && window.scrollY > 50) {
@@ -53,12 +50,8 @@ function checkScroll() {
     navbar.classList.remove("scrolled");
   }
 }
-//In der Funktion checkScroll wird überprüft, ob der Benutzer mehr als 50 Pixel gescrollt hat.
-//Wenn ja, wird der Klasse scrolled zur Navbar hinzugefügt, um sie visuell zu verändern.
-//Wenn nicht, wird die Klasse entfernt.
 
 window.addEventListener("scroll", onUserScroll);
-//Der scroll-Event wird auf das Fenster angewendet, sodass jedes Scrollen die onUserScroll-Funktion auslöst.
 
 // ==========>>>>              Scrolled Navbar           <<<<=========== //
 
@@ -66,98 +59,107 @@ window.addEventListener("scroll", onUserScroll);
 
 document.getElementById("faq-link").addEventListener("click", function (e) {
   e.preventDefault();
-  //Wenn der Benutzer auf den FAQ-Link klickt, wird das Standard-Thema auf das alternative Thema umgeschaltet (alternate-theme).
 
+  // Toggle theme class on body
   document.body.classList.toggle("alternate-theme");
 
+  // Optional: Save preference (remove if not needed)
   localStorage.setItem(
     "altTheme",
     document.body.classList.contains("alternate-theme")
   );
 });
-//localStorage speichert die Präferenz des Benutzers, sodass das Thema auch beim nächsten Laden der Seite beibehalten wird.
 
+// Optional: Load saved preference
 if (localStorage.getItem("altTheme") === "true") {
   document.body.classList.add("alternate-theme");
 }
-//Beim Laden der Seite wird überprüft, ob der Benutzer das alternative Thema zuvor gewählt hat. Wenn ja, wird es wieder aktiviert.
 
 // ==========>>>>             ThemeSwitch         <<<<=========== //
 
 // ==========>>>>             Sprache wechseln          <<<<=========== //
 document.addEventListener("DOMContentLoaded", function () {
-  // Definieren Sie die Sprachkonfiguration: Sprachname, Flaggenbild, Schaltflächentexte.
-
   const languageConfig = {
     en: {
       name: "English",
       flag: "English_lang.png",
       code: "en",
-      filterButton: "Filter: Show All",
-      sortButton: "Sort Beaches Alphabetically",
-      filterYes: "Filter: With Infrastructure",
-      filterNo: "Filter: Without Infrastructure",
+      sortButton: "Sort  Alphabetically",
       sortDefault: "Default Order",
     },
     de: {
       name: "Deutsch",
       flag: "German_lang.png",
       code: "de",
-      filterButton: "Filter: Alle anzeigen",
-      sortButton: "Strände alphabetisch sortieren",
-      filterYes: "Mit Infrastruktur",
-      filterNo: "Ohne Infrastruktur",
+      sortButton: "Alphabetisch sortieren",
       sortDefault: "Standard Reihenfolge",
     },
     es: {
       name: "Español",
       flag: "Spanish_lang.png",
       code: "es",
-      filterButton: "Filtro: Mostrar todo",
-      sortButton: "Ordenar playas alfabéticamente",
-      filterYes: "Con Infraestructura",
-      filterNo: "Sin Infraestructura",
+      sortButton: "Ordenar alfabéticamente",
       sortDefault: "Orden Predeterminado",
     },
   };
-  //languageConfig enthält die Sprachdaten (Englisch, Deutsch, Spanisch) wie Name der Sprache, Flaggenbild, Sprachcode und Text für Schaltflächen.
 
   let currentLang = localStorage.getItem("language") || "en";
   let texts = {};
   let isSorted = false;
-  let currentFilter = "all";
-  // currentLang speichert die aktuelle Sprache aus localStorage oder setzt sie standardmäßig auf Englisch (en).
-  //texts wird später verwendet, um die Übersetzungen zu speichern.
-  //isSorted und currentFilter sind für die Sortierung und Filterung von Inhalten zuständig.
+  let originalOrder = [];
 
+  const sortButton = document.getElementById("sortButton");
+  const beachSection = document.getElementById("beaches-section");
+
+  // Initialize original order on page load
+  function initializeOriginalOrder() {
+    originalOrder = Array.from(document.querySelectorAll(".beach-row"));
+    originalOrder.forEach((row, index) => {
+      row.dataset.originalPosition = index;
+    });
+  }
+
+  // Load translations data
   fetch("data.json")
     .then((response) => response.json())
     .then((translations) => {
       texts = translations;
-      changeLanguage(currentLang, translations, languageConfig);
+      initializeOriginalOrder();
+      changeLanguage(currentLang, translations, languageConfig, false); // Don't reset sort on initial load
       setupLanguageDropdown(translations, languageConfig);
+      updateButtonLabels();
     })
-    .catch((error) => console.error("Error loading translations:", error));
-  // Hier wird die data.json-Datei geladen, die die Übersetzungen enthält. Nach dem erfolgreichen Laden werden die Übersetzungen und die Sprachumschaltung aufgerufen.
+    .catch((error) => {
+      console.error("Error loading translations:", error);
+      alert("There was an error loading the translation data.");
+    });
 
+  // Dropdown toggle
   document.getElementById("dropbtn").addEventListener("click", function (e) {
     e.stopPropagation();
     document.getElementById("dropdown-content").classList.toggle("show");
   });
-  //Wenn der Benutzer auf das Dropdown-Menü klickt, wird das Menü angezeigt oder ausgeblendet.
 
   document.addEventListener("click", function () {
     document.getElementById("dropdown-content").classList.remove("show");
   });
-  //Wenn der Benutzer außerhalb des Dropdown-Menüs klickt, wird das Menü geschlossen.
 
-  function changeLanguage(langCode, translations, configData) {
+  function changeLanguage(
+    langCode,
+    translations,
+    configData,
+    resetSort = true
+  ) {
     currentLang = langCode;
     const langData = translations[langCode];
     const config = configData[langCode];
-    if (!langData || !config) return;
-    //Die changeLanguage-Funktion ändert die Sprache der Seite basierend auf dem langCode, indem sie die entsprechenden Übersetzungen und Konfigurationsdaten verwendet.
 
+    if (!langData || !config) {
+      console.error("Error: Language data or config not found for", langCode);
+      return;
+    }
+
+    // Update language selection
     document.getElementById("selected-language").textContent = config.name;
     const flag = document.getElementById("language-flag");
     flag.src = `lang_img/${config.flag}`;
@@ -171,11 +173,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Update button text
-    updateButtonLabels();
-
     // Save language
     localStorage.setItem("language", langCode);
+    updateButtonLabels();
+
+    // Only reset sort if explicitly requested (not on initial load)
+    if (resetSort) {
+      sortBeaches(); // Just re-sort without changing isSorted
+    }
   }
 
   function setupLanguageDropdown(translations, configData) {
@@ -183,77 +188,54 @@ document.addEventListener("DOMContentLoaded", function () {
       item.addEventListener("click", function (e) {
         e.preventDefault();
         const langCode = this.getAttribute("data-lang");
-        changeLanguage(langCode, translations, configData);
+        changeLanguage(langCode, translations, configData, false); // Don't reset sort
         document.getElementById("dropdown-content").classList.remove("show");
+
+        // Reapply current sort after language change
+        sortBeaches();
       });
     });
   }
 
   function updateButtonLabels() {
     const config = languageConfig[currentLang];
-    document.getElementById("filterDropdownButton").textContent =
-      config.filterButton;
-    document.getElementById("sortButton").textContent = isSorted
-      ? config.sortDefault
-      : config.sortButton;
+    sortButton.textContent = isSorted ? config.sortDefault : config.sortButton;
   }
 
-  // Beach Section logic
-  const sortButton = document.getElementById("sortButton");
-  const filterOptions = document.getElementById("filterOptions");
-  const beachSection = document.querySelector(".beaches-section");
-  const allRows = Array.from(beachSection.querySelectorAll(".beach-row"));
+  function sortBeaches() {
+    const beachRows = Array.from(document.querySelectorAll(".beach-row"));
 
-  function renderBeaches() {
-    beachSection.innerHTML = "";
+    // Detach all rows temporarily
+    beachRows.forEach((row) => row.remove());
 
-    let rowsToDisplay = allRows.filter((row) => {
-      if (currentFilter === "yes") return row.dataset.infra === "yes";
-      if (currentFilter === "no") return row.dataset.infra === "no";
-      return true;
-    });
+    // Determine which order to use
+    const rowsToDisplay = isSorted
+      ? [...beachRows].sort((a, b) => {
+          const titleA = a.querySelector("h2").textContent.trim().toLowerCase();
+          const titleB = b.querySelector("h2").textContent.trim().toLowerCase();
+          return titleA.localeCompare(titleB);
+        })
+      : beachRows.sort((a, b) => {
+          return (
+            parseInt(a.dataset.originalPosition) -
+            parseInt(b.dataset.originalPosition)
+          );
+        });
 
-    if (isSorted) {
-      rowsToDisplay.sort((a, b) => {
-        const titleA = a.querySelector("h2").textContent.trim().toLowerCase();
-        const titleB = b.querySelector("h2").textContent.trim().toLowerCase();
-        return titleA.localeCompare(titleB);
-      });
-    }
-
+    // Reattach rows in the correct order
     rowsToDisplay.forEach((row) => beachSection.appendChild(row));
   }
 
-  // Filter dropdown logic
-  filterOptions.addEventListener("click", (event) => {
-    if (event.target.tagName === "A") {
-      event.preventDefault();
-      currentFilter = event.target.dataset.infra;
-
-      const config = languageConfig[currentLang];
-      const filterButton = document.getElementById("filterDropdownButton");
-
-      if (currentFilter === "yes") {
-        filterButton.textContent = config.filterYes;
-      } else if (currentFilter === "no") {
-        filterButton.textContent = config.filterNo;
-      } else {
-        filterButton.textContent = config.filterButton;
-      }
-
-      renderBeaches();
-    }
-  });
-
-  // Sort button logic
   sortButton.addEventListener("click", () => {
     isSorted = !isSorted;
-    updateButtonLabels(); // Use selected language
-    renderBeaches();
+    updateButtonLabels();
+    sortBeaches();
   });
 
-  renderBeaches(); // Initial load
+  // Initialize on page load
+  initializeOriginalOrder();
 });
+
 //  ==================      Sort-Filter-Button   ====================  //
 
 // ==========>>>> Auto-Update Beach Data <<<<=========== //
