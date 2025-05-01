@@ -779,7 +779,7 @@ body {
 
 /* Navbar */
 .alternate-theme .navbar.scrolled {
-  background: rgba(22, 3, 3, 0.7) !important;
+  background: rgba(22, 3, 3, 0.9) !important;
 }
 .alternate-theme,
 .alternate-theme .accent {
@@ -795,7 +795,7 @@ body {
 }
 /* Cards */
 .alternate-theme .card-link {
-  background: rgba(22, 3, 3, 0.7) !important;
+  background: rgba(22, 3, 3, 0.9) !important;
 }
 .alternate-theme .card-link:hover {
   border: 1px solid var(--accent) !important;
@@ -817,7 +817,7 @@ body {
 }
 /* Testimonials */
 .alternate-theme .highlight-card {
-  background: rgba(22, 3, 3, 0.7) !important;
+  background: rgba(22, 3, 3, 0.9) !important;
   border-left: 4px solid var(--accent) !important;
 }
 

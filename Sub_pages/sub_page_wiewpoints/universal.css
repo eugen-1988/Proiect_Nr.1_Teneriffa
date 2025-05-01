@@ -627,7 +627,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  background: linear-gradient(to right, #ffa600, #ff6f00);
+  background: linear-gradient(to right, #a6dbe2, #34b4f0);
   border: none;
   color: #202020;
   border-radius: 8px;
@@ -636,7 +636,7 @@ body {
 }
 
 #sortButton:hover {
-  background: linear-gradient(to right, #ff6f00, #ffa600);
+  background: linear-gradient(to right, #34b4f0, #a6dbe2);
 }
 /* ////////// ===>>          Sort-Button-Alphabetically           <<=== \\\\\\\\\\ */
 #filterDropdownButton {
@@ -645,7 +645,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  background: linear-gradient(to right, #ffa600, #ff6f00);
+  background: linear-gradient(to right, #a6dbe2, #34b4f0);
   border: none;
   color: #202020;
   border-radius: 8px;
@@ -655,7 +655,7 @@ body {
 }
 
 #filterDropdownButton:hover {
-  background: linear-gradient(to right, #ff6f00, #ffa600);
+  background: linear-gradient(to right, #34b4f0, #a6dbe2);
 }
 .dropdown {
   display: inline-block;
@@ -666,7 +666,7 @@ body {
   position: absolute;
   background-color: white;
   min-width: 200px;
-  background: linear-gradient(to right, #ffa600, #ff6f00);
+  background: linear-gradient(to right, #a6dbe2, #34b4f0);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
   border: 1px solid #ccc;
@@ -683,7 +683,7 @@ body {
 }
 
 .dropdown-content-filter a:hover {
-  background: linear-gradient(to right, #ff6f00, #ffa600);
+  background: linear-gradient(to right, #34b4f0, #a6dbe2);
 }
 
 .dropdown:hover .dropdown-content-filter {
@@ -857,7 +857,7 @@ body {
 
 /* Navbar */
 .alternate-theme .navbar.scrolled {
-  background: rgba(22, 3, 3, 0.7) !important;
+  background: rgba(22, 3, 3, 0.9) !important;
 }
 .alternate-theme,
 .alternate-theme .accent {
@@ -873,11 +873,11 @@ body {
 }
 /* Cards */
 .alternate-theme .card-link {
-  background: rgba(22, 3, 3, 0.7) !important;
+  background: rgba(22, 3, 3, 0.9) !important;
 }
 .alternate-theme,
 .card-link:hover {
-  background: rgba(22, 3, 3, 0.7) !important;
+  background: rgba(22, 3, 3, 0.9) !important;
   border: 1px solid var(--accent) !important;
 }
 
@@ -900,7 +900,7 @@ body {
   color: var(--accent) !important;
 }
 .alternate-theme .beach-row {
-  background: rgba(22, 3, 3, 0.7) !important;
+  background: rgba(22, 3, 3, 0.9) !important;
   border-left: 4px solid var(--accent) !important;
 }
 /* ////////// ===>>        ThemeSwitch        <<=== \\\\\\\\\\ */

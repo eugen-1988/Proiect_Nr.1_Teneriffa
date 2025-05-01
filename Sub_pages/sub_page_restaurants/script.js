@@ -1,94 +1,44 @@
-// ==========>>>>              Carousel Swipper            <<<<=========== //
-
-new Swiper(".card-wrapper", {
-  loop: true,
-  spaceBetween: 30,
-
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-// ==========>>>>              Carousel Swipper            <<<<=========== //
-
-// ==========>>>>              Scrolled Navbar           <<<<=========== //
+// ==========>>>>       Scrolled Navbar        <<<<=========== //
 
 const navbar = document.querySelector(".navbar");
-let hasUserScrolled = false;
-let texts;
-// Listen for user scroll interaction
-function onUserScroll() {
-  hasUserScrolled = true;
-  checkScroll();
-}
 
-function checkScroll() {
-  if (hasUserScrolled && window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-}
+const checkScroll = () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 50);
+};
 
-window.addEventListener("scroll", onUserScroll);
+window.addEventListener("scroll", checkScroll);
 
-// ==========>>>>              Scrolled Navbar           <<<<=========== //
+// ==========>>>>           Theme Switch          <<<<=========== //
 
-// ==========>>>>             ThemeSwitch         <<<<=========== //
+const faqLink = document.getElementById("faq-link");
 
-document.getElementById("faq-link").addEventListener("click", function (e) {
+faqLink?.addEventListener("click", (e) => {
   e.preventDefault();
-
-  // Toggle theme class on body
   document.body.classList.toggle("alternate-theme");
-
-  // Optional: Save preference (remove if not needed)
   localStorage.setItem(
     "altTheme",
     document.body.classList.contains("alternate-theme")
   );
 });
 
-// Optional: Load saved preference
 if (localStorage.getItem("altTheme") === "true") {
   document.body.classList.add("alternate-theme");
 }
 
-// ==========>>>>             ThemeSwitch         <<<<=========== //
+// ==========>>>>     Sprache Switch (Language)    <<<<=========== //
 
-// ==========>>>>             Sprache wechseln          <<<<=========== //
-document.addEventListener("DOMContentLoaded", function () {
-  // Language configuration with button texts
+document.addEventListener("DOMContentLoaded", () => {
+  const sectionKey = "restaurants";
+
   const languageConfig = {
     en: {
       name: "English",
       flag: "English_lang.png",
       code: "en",
       filterButton: "Filter: Show All",
-      sortButton: "Sort  Alphabetically",
-      filterYes: "Filter: with vegetarian dishes",
-      filterNo: "Filter: without vegetarian dishes",
+      sortButton: "Sort Restaurants Alphabetically",
+      filterYes: "Filter: With Vegetarian Options",
+      filterNo: "Filter: Without Vegetarian Options",
       sortDefault: "Default Order",
     },
     de: {
@@ -96,9 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
       flag: "German_lang.png",
       code: "de",
       filterButton: "Filter: Alle anzeigen",
-      sortButton: " alphabetisch sortieren",
-      filterYes: "mit vegetarischen Gerichten",
-      filterNo: "ohne vegetarische Gerichte",
+      sortButton: "Restaurants alphabetisch sortieren",
+      filterYes: "Mit vegetarischen Optionen",
+      filterNo: "Ohne vegetarische Optionen",
       sortDefault: "Standard Reihenfolge",
     },
     es: {
@@ -106,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
       flag: "Spanish_lang.png",
       code: "es",
       filterButton: "Filtro: Mostrar todo",
-      sortButton: "Ordenar  alfabéticamente",
-      filterYes: "con platos vegetarianos",
-      filterNo: "sin platos vegetarianos",
+      sortButton: "Ordenar restaurantes alfabéticamente",
+      filterYes: "Con opciones vegetarianas",
+      filterNo: "Sin opciones vegetarianas",
       sortDefault: "Orden Predeterminado",
     },
   };
@@ -118,213 +68,133 @@ document.addEventListener("DOMContentLoaded", function () {
   let isSorted = false;
   let currentFilter = "all";
 
-  // Load translations
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((translations) => {
-      texts = translations;
-      changeLanguage(currentLang, translations, languageConfig);
-      setupLanguageDropdown(translations, languageConfig);
-    })
-    .catch((error) => console.error("Error loading translations:", error));
+  const sortButton = document.getElementById("sortButton");
+  const filterOptions = document.getElementById("filterOptions");
+  const beachSection = document.querySelector(".beaches-section");
+  const allRows = Array.from(
+    beachSection?.querySelectorAll(".beach-row") || []
+  );
 
-  // Dropdown toggle
-  document.getElementById("dropbtn").addEventListener("click", function (e) {
-    e.stopPropagation();
-    document.getElementById("dropdown-content").classList.toggle("show");
-  });
+  const updateButtonLabels = () => {
+    const config = languageConfig[currentLang];
+    if (!config) return;
+    document.getElementById("filterDropdownButton").textContent =
+      currentFilter === "yes"
+        ? config.filterYes
+        : currentFilter === "no"
+        ? config.filterNo
+        : config.filterButton;
 
-  document.addEventListener("click", function () {
-    document.getElementById("dropdown-content").classList.remove("show");
-  });
+    sortButton.textContent = isSorted ? config.sortDefault : config.sortButton;
+  };
 
-  function changeLanguage(langCode, translations, configData) {
+  const renderBeaches = () => {
+    if (!beachSection) return;
+    beachSection.innerHTML = "";
+
+    const filteredRows = allRows.filter((row) => {
+      return currentFilter === "all" || row.dataset.infra === currentFilter;
+    });
+
+    if (isSorted) {
+      filteredRows.sort((a, b) =>
+        a
+          .querySelector("h2")
+          .textContent.localeCompare(
+            b.querySelector("h2").textContent,
+            undefined,
+            { sensitivity: "base" }
+          )
+      );
+    }
+
+    filteredRows.forEach((row) => beachSection.appendChild(row));
+  };
+
+  const changeLanguage = (langCode, translations, configData) => {
     currentLang = langCode;
-    const langData = translations[langCode];
     const config = configData[langCode];
+    if (
+      !translations ||
+      !translations[sectionKey] ||
+      !translations[sectionKey][langCode] ||
+      !config
+    ) {
+      console.warn("Missing language data for:", langCode);
+      return;
+    }
 
-    if (!langData || !config) return;
-
-    // Update language selection
     document.getElementById("selected-language").textContent = config.name;
     const flag = document.getElementById("language-flag");
     flag.src = `lang_img/${config.flag}`;
     flag.alt = config.name;
 
-    // Update content from JSON
-    for (const [key, value] of Object.entries(langData)) {
+    const sectionData = translations[sectionKey][langCode];
+    Object.entries(sectionData).forEach(([key, value]) => {
       const element = document.getElementById(key);
-      if (element) {
-        element.textContent = value;
-      }
-    }
+      if (element) element.textContent = value;
+    });
 
-    // Update button text
     updateButtonLabels();
-
-    // Save language
     localStorage.setItem("language", langCode);
-  }
+  };
 
-  function setupLanguageDropdown(translations, configData) {
+  const setupLanguageDropdown = (translations, configData) => {
     document.querySelectorAll("#dropdown-content a").forEach((item) => {
-      item.addEventListener("click", function (e) {
+      item.addEventListener("click", (e) => {
         e.preventDefault();
-        const langCode = this.getAttribute("data-lang");
+        const langCode = item.dataset.lang;
         changeLanguage(langCode, translations, configData);
         document.getElementById("dropdown-content").classList.remove("show");
       });
     });
-  }
+  };
 
-  function updateButtonLabels() {
-    const config = languageConfig[currentLang];
-    document.getElementById("filterDropdownButton").textContent =
-      config.filterButton;
-    document.getElementById("sortButton").textContent = isSorted
-      ? config.sortDefault
-      : config.sortButton;
-  }
-
-  // Filter Section logic
-  const sortButton = document.getElementById("sortButton");
-  const filterOptions = document.getElementById("filterOptions");
-  const beachSection = document.querySelector(".beaches-section");
-  const allRows = Array.from(beachSection.querySelectorAll(".beach-row"));
-
-  function renderBeaches() {
-    beachSection.innerHTML = "";
-
-    let rowsToDisplay = allRows.filter((row) => {
-      if (currentFilter === "yes") return row.dataset.infra === "yes";
-      if (currentFilter === "no") return row.dataset.infra === "no";
-      return true;
-    });
-
-    if (isSorted) {
-      rowsToDisplay.sort((a, b) => {
-        const titleA = a.querySelector("h2").textContent.trim().toLowerCase();
-        const titleB = b.querySelector("h2").textContent.trim().toLowerCase();
-        return titleA.localeCompare(titleB);
-      });
-    }
-
-    rowsToDisplay.forEach((row) => beachSection.appendChild(row));
-  }
-
-  // Filter dropdown logic
-  filterOptions.addEventListener("click", (event) => {
-    if (event.target.tagName === "A") {
-      event.preventDefault();
-      currentFilter = event.target.dataset.infra;
-
-      const config = languageConfig[currentLang];
-      const filterButton = document.getElementById("filterDropdownButton");
-
-      if (currentFilter === "yes") {
-        filterButton.textContent = config.filterYes;
-      } else if (currentFilter === "no") {
-        filterButton.textContent = config.filterNo;
-      } else {
-        filterButton.textContent = config.filterButton;
-      }
-
+  fetch("/data.json")
+    .then((response) => response.json())
+    .then((translations) => {
+      texts = translations;
+      setupLanguageDropdown(translations, languageConfig);
       renderBeaches();
+      changeLanguage(currentLang, translations, languageConfig);
+    })
+    .catch((err) => console.error("Error loading translations:", err));
+
+  document.getElementById("dropbtn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.getElementById("dropdown-content").classList.toggle("show");
+  });
+
+  document.addEventListener("click", () => {
+    document.getElementById("dropdown-content").classList.remove("show");
+  });
+
+  filterOptions?.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      e.preventDefault();
+      currentFilter = e.target.dataset.infra;
+      renderBeaches();
+      changeLanguage(currentLang, texts, languageConfig);
     }
   });
 
-  // Sort button logic
-  sortButton.addEventListener("click", () => {
+  sortButton?.addEventListener("click", () => {
     isSorted = !isSorted;
-    updateButtonLabels(); // Use selected language
+    updateButtonLabels();
     renderBeaches();
   });
 
-  renderBeaches(); // Initial load
-});
-//  ==================      Sort-Filter-Button   ====================  //
-
-// ==========>>>> Auto-Update Beach Data <<<<=========== //
-
-// Function to fetch updated beach data
-async function fetchUpdatedBeachData() {
-  try {
-    const response = await fetch("beach-data.json"); // Replace with your actual endpoint
-    if (!response.ok) throw new Error("Network response was not ok");
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching updated beach data:", error);
-    return null;
-  }
-}
-
-// Function to update the DOM with new data
-function updateBeachData(newData) {
-  if (!newData) return;
-
-  const beachSection = document.querySelector(".beaches-section");
-  const template = document.querySelector(".beach-row-template"); // You'll need a template
-
-  // Clear current data
-  beachSection.innerHTML = "";
-
-  // Add new data
-  newData.forEach((beach) => {
-    const clone = template.content.cloneNode(true);
-    // Update clone with beach data
-    clone.querySelector("h2").textContent = beach.name;
-    clone.querySelector(".location").textContent = beach.location;
-    clone.querySelector(".description").textContent = beach.description;
-    clone.dataset.infra = beach.hasInfrastructure ? "yes" : "no";
-
-    beachSection.appendChild(clone);
-  });
-
-  // Reinitialize any event listeners if needed
-  initializeBeachRowEvents();
-}
-
-// Auto-update logic
-let updateInterval;
-let isAutoUpdating = false;
-
-function startAutoUpdate() {
-  if (isAutoUpdating) return;
-
-  isAutoUpdating = true;
-  updateInterval = setInterval(async () => {
-    console.log("Updating beach data...");
-    const newData = await fetchUpdatedBeachData();
-    updateBeachData(newData);
-  }, 5000); // 5 seconds
-}
-
-function stopAutoUpdate() {
-  isAutoUpdating = false;
-  clearInterval(updateInterval);
-}
-
-// Toggle button for auto-update
-document.addEventListener("DOMContentLoaded", () => {
-  const autoUpdateButton = document.createElement("button");
-  autoUpdateButton.id = "autoUpdateButton";
-  autoUpdateButton.textContent = "Enable Auto-Update";
-  autoUpdateButton.classList.add("auto-update-btn");
-
-  // Add button to the page (you might want to position it appropriately)
-  document
-    .querySelector(".filter-sort-container")
-    .appendChild(autoUpdateButton);
-
-  autoUpdateButton.addEventListener("click", () => {
-    if (isAutoUpdating) {
-      stopAutoUpdate();
-      autoUpdateButton.textContent = "Enable Auto-Update";
-    } else {
-      startAutoUpdate();
-      autoUpdateButton.textContent = "Disable Auto-Update";
+  const fetchAndUpdateData = async () => {
+    try {
+      const res = await fetch("/data.json");
+      const updated = await res.json();
+      translations = updated;
+      changeLanguage(currentLang, updated, languageConfig);
+      console.log("Data updated at", new Date().toLocaleTimeString());
+    } catch (err) {
+      console.error("Error during auto update:", err);
     }
-  });
-});
+  };
 
-// ==========>>>> Auto-Update Beach Data <<<<=========== //
+  setInterval(fetchAndUpdateData, 60000);
+});

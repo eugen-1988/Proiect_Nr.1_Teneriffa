@@ -1,94 +1,41 @@
-// ==========>>>>              Carousel Swipper            <<<<=========== //
+// ==========>>>>       Scrolled Navbar        <<<<=========== //
 
-new Swiper(".card-wrapper", {
-  loop: true,
-  spaceBetween: 30,
+const navbar = document.querySelector(".navbar"); // Holt das Element mit der Klasse "navbar"
 
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
+const checkScroll = () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 50); // Fügt Klasse "scrolled" hinzu, wenn Scrollposition > 50px ist
+};
 
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+window.addEventListener("scroll", checkScroll); // Führt checkScroll aus, wenn Benutzer scrollt
 
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
+// ==========>>>>           Theme Switch          <<<<=========== //
 
-// ==========>>>>              Carousel Swipper            <<<<=========== //
+const faqLink = document.getElementById("faq-link"); // Holt das Element mit der ID "faq-link"
 
-// ==========>>>>              Scrolled Navbar           <<<<=========== //
-
-const navbar = document.querySelector(".navbar");
-let hasUserScrolled = false;
-let texts;
-// Hier wird die Navigationsleiste (Navbar) im DOM ausgewählt (navbar).
-//Eine Variable hasUserScrolled wird initialisiert, um zu überprüfen, ob der Benutzer nach unten gescrollt hat.
-
-function onUserScroll() {
-  hasUserScrolled = true;
-  checkScroll();
-}
-//onUserScroll wird aufgerufen, wenn der Benutzer scrollt. Es setzt hasUserScrolled auf true und ruft die Funktion checkScroll auf.
-
-function checkScroll() {
-  if (hasUserScrolled && window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-}
-//In der Funktion checkScroll wird überprüft, ob der Benutzer mehr als 50 Pixel gescrollt hat.
-//Wenn ja, wird der Klasse scrolled zur Navbar hinzugefügt, um sie visuell zu verändern.
-//Wenn nicht, wird die Klasse entfernt.
-
-window.addEventListener("scroll", onUserScroll);
-//Der scroll-Event wird auf das Fenster angewendet, sodass jedes Scrollen die onUserScroll-Funktion auslöst.
-
-// ==========>>>>              Scrolled Navbar           <<<<=========== //
-
-// ==========>>>>             ThemeSwitch         <<<<=========== //
-
-document.getElementById("faq-link").addEventListener("click", function (e) {
-  e.preventDefault();
-  //Wenn der Benutzer auf den FAQ-Link klickt, wird das Standard-Thema auf das alternative Thema umgeschaltet (alternate-theme).
-
-  document.body.classList.toggle("alternate-theme");
-
+faqLink?.addEventListener("click", (e) => {
+  // Wenn Element vorhanden, reagiere auf Klick
+  e.preventDefault(); // Verhindert Standardverhalten (z. B. Seitenwechsel)
+  document.body.classList.toggle("alternate-theme"); // Wechselt das Theme durch Hinzufügen/Entfernen der Klasse
   localStorage.setItem(
+    // Speichert das aktuelle Theme im lokalen Speicher
     "altTheme",
-    document.body.classList.contains("alternate-theme")
+    document.body.classList.contains("alternate-theme") // true, wenn Klasse aktiv ist
   );
 });
-//localStorage speichert die Präferenz des Benutzers, sodass das Thema auch beim nächsten Laden der Seite beibehalten wird.
 
 if (localStorage.getItem("altTheme") === "true") {
-  document.body.classList.add("alternate-theme");
+  // Wenn vorher gespeichertes Theme aktiv war:
+  document.body.classList.add("alternate-theme"); // Setzt Theme beim Laden automatisch
 }
-//Beim Laden der Seite wird überprüft, ob der Benutzer das alternative Thema zuvor gewählt hat. Wenn ja, wird es wieder aktiviert.
 
-// ==========>>>>             ThemeSwitch         <<<<=========== //
+// ==========>>>>     Language Switch (Beaches)    <<<<=========== //
 
-// ==========>>>>             Sprache wechseln          <<<<=========== //
-document.addEventListener("DOMContentLoaded", function () {
-  // Definieren Sie die Sprachkonfiguration: Sprachname, Flaggenbild, Schaltflächentexte.
+document.addEventListener("DOMContentLoaded", () => {
+  // Führt Code aus, wenn HTML vollständig geladen ist
+  const sectionKey = "beaches"; // Setzt Bereichsschlüssel für Übersetzungsdaten
 
   const languageConfig = {
+    // Definition der Sprachkonfiguration
     en: {
       name: "English",
       flag: "English_lang.png",
@@ -120,223 +67,145 @@ document.addEventListener("DOMContentLoaded", function () {
       sortDefault: "Orden Predeterminado",
     },
   };
-  //languageConfig enthält die Sprachdaten (Englisch, Deutsch, Spanisch) wie Name der Sprache, Flaggenbild, Sprachcode und Text für Schaltflächen.
 
-  let currentLang = localStorage.getItem("language") || "en";
-  let texts = {};
-  let isSorted = false;
-  let currentFilter = "all";
-  // currentLang speichert die aktuelle Sprache aus localStorage oder setzt sie standardmäßig auf Englisch (en).
-  //texts wird später verwendet, um die Übersetzungen zu speichern.
-  //isSorted und currentFilter sind für die Sortierung und Filterung von Inhalten zuständig.
+  let currentLang = localStorage.getItem("language") || "en"; // Aktuelle Sprache aus dem Speicher oder Standard "en"
+  let translations = {}; // Objekt für Übersetzungen
+  let isSorted = false; // Gibt an, ob sortiert wurde
+  let currentFilter = "all"; // Aktueller Filterstatus (alle, mit, ohne)
 
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((translations) => {
-      texts = translations;
-      changeLanguage(currentLang, translations, languageConfig);
-      setupLanguageDropdown(translations, languageConfig);
-    })
-    .catch((error) => console.error("Error loading translations:", error));
-  // Hier wird die data.json-Datei geladen, die die Übersetzungen enthält. Nach dem erfolgreichen Laden werden die Übersetzungen und die Sprachumschaltung aufgerufen.
+  const sortButton = document.getElementById("sortButton"); // Sortierknopf
+  const filterOptions = document.getElementById("filterOptions"); // Filter-Dropdown
+  const beachSection = document.querySelector(".beaches-section"); // Bereich mit allen Stränden
+  const allRows = Array.from(
+    // Alle Strandelemente als Array
+    beachSection?.querySelectorAll(".beach-row") || []
+  );
 
-  document.getElementById("dropbtn").addEventListener("click", function (e) {
-    e.stopPropagation();
-    document.getElementById("dropdown-content").classList.toggle("show");
-  });
-  //Wenn der Benutzer auf das Dropdown-Menü klickt, wird das Menü angezeigt oder ausgeblendet.
-
-  document.addEventListener("click", function () {
-    document.getElementById("dropdown-content").classList.remove("show");
-  });
-  //Wenn der Benutzer außerhalb des Dropdown-Menüs klickt, wird das Menü geschlossen.
-
-  function changeLanguage(langCode, translations, configData) {
-    currentLang = langCode;
-    const langData = translations[langCode];
-    const config = configData[langCode];
-    if (!langData || !config) return;
-    //Die changeLanguage-Funktion ändert die Sprache der Seite basierend auf dem langCode, indem sie die entsprechenden Übersetzungen und Konfigurationsdaten verwendet.
-
-    document.getElementById("selected-language").textContent = config.name;
-    const flag = document.getElementById("language-flag");
-    flag.src = `lang_img/${config.flag}`;
-    flag.alt = config.name;
-
-    // Update content from JSON
-    for (const [key, value] of Object.entries(langData)) {
-      const element = document.getElementById(key);
-      if (element) {
-        element.textContent = value;
-      }
-    }
-
-    // Update button text
-    updateButtonLabels();
-
-    // Save language
-    localStorage.setItem("language", langCode);
-  }
-
-  function setupLanguageDropdown(translations, configData) {
-    document.querySelectorAll("#dropdown-content a").forEach((item) => {
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        const langCode = this.getAttribute("data-lang");
-        changeLanguage(langCode, translations, configData);
-        document.getElementById("dropdown-content").classList.remove("show");
-      });
-    });
-  }
-
-  function updateButtonLabels() {
+  const updateButtonLabels = () => {
+    // Aktualisiert Text auf den Buttons basierend auf Sprache und Status
     const config = languageConfig[currentLang];
+    if (!config) return;
+
     document.getElementById("filterDropdownButton").textContent =
-      config.filterButton;
-    document.getElementById("sortButton").textContent = isSorted
-      ? config.sortDefault
-      : config.sortButton;
-  }
+      currentFilter === "yes"
+        ? config.filterYes
+        : currentFilter === "no"
+        ? config.filterNo
+        : config.filterButton;
 
-  // Beach Section logic
-  const sortButton = document.getElementById("sortButton");
-  const filterOptions = document.getElementById("filterOptions");
-  const beachSection = document.querySelector(".beaches-section");
-  const allRows = Array.from(beachSection.querySelectorAll(".beach-row"));
+    sortButton.textContent = isSorted ? config.sortDefault : config.sortButton;
+  };
 
-  function renderBeaches() {
-    beachSection.innerHTML = "";
+  const renderBeaches = () => {
+    // Zeigt die Strände basierend auf Filter und Sortierung an
+    if (!beachSection) return;
 
-    let rowsToDisplay = allRows.filter((row) => {
-      if (currentFilter === "yes") return row.dataset.infra === "yes";
-      if (currentFilter === "no") return row.dataset.infra === "no";
-      return true;
+    beachSection.innerHTML = ""; // Löscht aktuellen Inhalt
+
+    const filteredRows = allRows.filter((row) => {
+      return currentFilter === "all" || row.dataset.infra === currentFilter; // Filtert nach Infrastruktur
     });
 
     if (isSorted) {
-      rowsToDisplay.sort((a, b) => {
-        const titleA = a.querySelector("h2").textContent.trim().toLowerCase();
-        const titleB = b.querySelector("h2").textContent.trim().toLowerCase();
-        return titleA.localeCompare(titleB);
+      filteredRows.sort((a, b) =>
+        a
+          .querySelector("h2")
+          .textContent.localeCompare(
+            b.querySelector("h2").textContent,
+            undefined,
+            { sensitivity: "base" }
+          )
+      ); // Sortiert alphabetisch nach Titel
+    }
+
+    filteredRows.forEach((row) => beachSection.appendChild(row)); // Fügt alle sichtbaren Zeilen wieder hinzu
+  };
+
+  const changeLanguage = (langCode, data, configData) => {
+    // Sprache ändern und anwenden
+    currentLang = langCode;
+    const sectionData = data[sectionKey]?.[langCode];
+    const config = configData[langCode];
+    if (!sectionData || !config) {
+      console.warn("Missing data for language:", langCode); // Warnung bei fehlender Sprache
+      return;
+    }
+
+    document.getElementById("selected-language").textContent = config.name; // Aktualisiert Sprache im UI
+    const flag = document.getElementById("language-flag"); // Holt Flaggenbild
+    flag.src = `lang_img/${config.flag}`; // Setzt Quelle
+    flag.alt = config.name; // Alt-Text für Barrierefreiheit
+
+    Object.entries(sectionData).forEach(([key, value]) => {
+      const el = document.getElementById(key);
+      if (el) el.textContent = value; // Setzt Text in übersetzten Elementen
+    });
+
+    updateButtonLabels(); // Aktualisiert Buttons mit korrekten Sprachwerten
+    localStorage.setItem("language", langCode); // Speichert Sprache lokal
+  };
+
+  const setupLanguageDropdown = (data, configData) => {
+    // Sprachmenü einrichten
+    document.querySelectorAll("#dropdown-content a").forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        const langCode = item.dataset.lang;
+        changeLanguage(langCode, data, configData); // Sprache ändern
+        document.getElementById("dropdown-content").classList.remove("show"); // Menü schließen
       });
-    }
+    });
+  };
 
-    rowsToDisplay.forEach((row) => beachSection.appendChild(row));
-  }
+  fetch("/data.json") // Holt Übersetzungsdaten
+    .then((res) => res.json())
+    .then((data) => {
+      translations = data;
+      setupLanguageDropdown(data, languageConfig); // Menü vorbereiten
+      renderBeaches(); // Strände anzeigen
+      changeLanguage(currentLang, data, languageConfig); // Sprache beim Start anwenden
+    })
+    .catch((err) => console.error("Error loading translations:", err)); // Fehlerbehandlung
 
-  // Filter dropdown logic
-  filterOptions.addEventListener("click", (event) => {
-    if (event.target.tagName === "A") {
-      event.preventDefault();
-      currentFilter = event.target.dataset.infra;
+  document.getElementById("dropbtn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.getElementById("dropdown-content").classList.toggle("show"); // Menü ein-/ausblenden
+  });
 
-      const config = languageConfig[currentLang];
-      const filterButton = document.getElementById("filterDropdownButton");
+  document.addEventListener("click", () => {
+    document.getElementById("dropdown-content").classList.remove("show"); // Klick außerhalb schließt das Menü
+  });
 
-      if (currentFilter === "yes") {
-        filterButton.textContent = config.filterYes;
-      } else if (currentFilter === "no") {
-        filterButton.textContent = config.filterNo;
-      } else {
-        filterButton.textContent = config.filterButton;
-      }
-
-      renderBeaches();
+  filterOptions.addEventListener("click", (e) => {
+    // Reaktion auf Filterauswahl
+    if (e.target.tagName === "A") {
+      e.preventDefault();
+      currentFilter = e.target.dataset.infra; // Filterwert übernehmen
+      renderBeaches(); // Ansicht aktualisieren
+      changeLanguage(currentLang, translations, languageConfig); // Sprache beibehalten
     }
   });
 
-  // Sort button logic
-  sortButton.addEventListener("click", () => {
-    isSorted = !isSorted;
-    updateButtonLabels(); // Use selected language
-    renderBeaches();
+  sortButton?.addEventListener("click", () => {
+    // Klick auf Sortierknopf
+    isSorted = !isSorted; // Sortierung umschalten
+    updateButtonLabels(); // Buttons aktualisieren
+    renderBeaches(); // Ansicht neu aufbauen
   });
 
-  renderBeaches(); // Initial load
+  // Optional: auto-refresh data every 60s
+  const fetchAndUpdateData = async () => {
+    // Asynchrone Funktion zum Daten-Update
+    try {
+      const res = await fetch("/data.json"); // Neue Daten laden
+      const updated = await res.json();
+      translations = updated;
+      changeLanguage(currentLang, updated, languageConfig); // Neue Daten anwenden
+      console.log("Data updated at", new Date().toLocaleTimeString()); // Log mit Uhrzeit
+    } catch (err) {
+      console.error("Error during auto update:", err); // Fehler bei Update
+    }
+  };
+
+  setInterval(fetchAndUpdateData, 60000); // Alle 60 Sekunden automatische Aktualisierung
 });
-//  ==================      Sort-Filter-Button   ====================  //
-
-// ==========>>>> Auto-Update Beach Data <<<<=========== //
-
-// Function to fetch updated beach data
-async function fetchUpdatedBeachData() {
-  try {
-    const response = await fetch("beach-data.json"); // Replace with your actual endpoint
-    if (!response.ok) throw new Error("Network response was not ok");
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching updated beach data:", error);
-    return null;
-  }
-}
-
-// Function to update the DOM with new data
-function updateBeachData(newData) {
-  if (!newData) return;
-
-  const beachSection = document.querySelector(".beaches-section");
-  const template = document.querySelector(".beach-row-template"); // You'll need a template
-
-  // Clear current data
-  beachSection.innerHTML = "";
-
-  // Add new data
-  newData.forEach((beach) => {
-    const clone = template.content.cloneNode(true);
-    // Update clone with beach data
-    clone.querySelector("h2").textContent = beach.name;
-    clone.querySelector(".location").textContent = beach.location;
-    clone.querySelector(".description").textContent = beach.description;
-    clone.dataset.infra = beach.hasInfrastructure ? "yes" : "no";
-
-    beachSection.appendChild(clone);
-  });
-
-  // Reinitialize any event listeners if needed
-  initializeBeachRowEvents();
-}
-
-// Auto-update logic
-let updateInterval;
-let isAutoUpdating = false;
-
-function startAutoUpdate() {
-  if (isAutoUpdating) return;
-
-  isAutoUpdating = true;
-  updateInterval = setInterval(async () => {
-    console.log("Updating beach data...");
-    const newData = await fetchUpdatedBeachData();
-    updateBeachData(newData);
-  }, 5000); // 5 seconds
-}
-
-function stopAutoUpdate() {
-  isAutoUpdating = false;
-  clearInterval(updateInterval);
-}
-
-// Toggle button for auto-update
-document.addEventListener("DOMContentLoaded", () => {
-  const autoUpdateButton = document.createElement("button");
-  autoUpdateButton.id = "autoUpdateButton";
-  autoUpdateButton.textContent = "Enable Auto-Update";
-  autoUpdateButton.classList.add("auto-update-btn");
-
-  // Add button to the page (you might want to position it appropriately)
-  document
-    .querySelector(".filter-sort-container")
-    .appendChild(autoUpdateButton);
-
-  autoUpdateButton.addEventListener("click", () => {
-    if (isAutoUpdating) {
-      stopAutoUpdate();
-      autoUpdateButton.textContent = "Enable Auto-Update";
-    } else {
-      startAutoUpdate();
-      autoUpdateButton.textContent = "Disable Auto-Update";
-    }
-  });
-});
-
-// ==========>>>> Auto-Update Beach Data <<<<=========== //
