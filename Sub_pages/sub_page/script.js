@@ -31,7 +31,8 @@ if (localStorage.getItem("altTheme") === "true") {
 // ==========>>>>     Language Switch (Beaches)    <<<<=========== //
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Führt Code aus, wenn HTML vollständig geladen ist
+  // ➤ Führt den gesamten Code erst aus, wenn das HTML-Dokument vollständig geladen ist
+
   const sectionKey = "beaches"; // Setzt Bereichsschlüssel für Übersetzungsdaten
 
   const languageConfig = {
@@ -73,11 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let isSorted = false; // Gibt an, ob sortiert wurde
   let currentFilter = "all"; // Aktueller Filterstatus (alle, mit, ohne)
 
-  const sortButton = document.getElementById("sortButton"); // Sortierknopf
-  const filterOptions = document.getElementById("filterOptions"); // Filter-Dropdown
-  const beachSection = document.querySelector(".beaches-section"); // Bereich mit allen Stränden
+  const sortButton = document.getElementById("sortButton"); // ➤ Holt das Sortier-Button-Element
+  const filterOptions = document.getElementById("filterOptions"); // ➤ Holt das Filtermenü
+  const beachSection = document.querySelector(".beaches-section"); // ➤ Greift auf den Abschnitt zu, der alle Strand-Einträge enthält
   const allRows = Array.from(
-    // Alle Strandelemente als Array
+    // ➤ Wandelt alle Strand-Zeilen in ein Array um, um später mit ihnen zu arbeiten
     beachSection?.querySelectorAll(".beach-row") || []
   );
 
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const renderBeaches = () => {
-    // Zeigt die Strände basierend auf Filter und Sortierung an
+    // ➤ Zeigt die Strände entsprechend der aktuellen Filter- und Sortiereinstellungen an
     if (!beachSection) return;
 
     beachSection.innerHTML = ""; // Löscht aktuellen Inhalt
@@ -118,11 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
       ); // Sortiert alphabetisch nach Titel
     }
 
-    filteredRows.forEach((row) => beachSection.appendChild(row)); // Fügt alle sichtbaren Zeilen wieder hinzu
+    filteredRows.forEach((row) => beachSection.appendChild(row)); // ➤ Fügt die gefilterten und ggf. sortierten Strände wieder in den DOM ein
   };
 
   const changeLanguage = (langCode, data, configData) => {
-    // Sprache ändern und anwenden
+    // ➤ Ändert die aktuelle Sprache und aktualisiert die Webseite
     currentLang = langCode;
     const sectionData = data[sectionKey]?.[langCode];
     const config = configData[langCode];
@@ -146,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const setupLanguageDropdown = (data, configData) => {
-    // Sprachmenü einrichten
+    // ➤ Setzt die Klick-Funktionalität für das Sprachmenü
     document.querySelectorAll("#dropdown-content a").forEach((item) => {
       item.addEventListener("click", (e) => {
         e.preventDefault();

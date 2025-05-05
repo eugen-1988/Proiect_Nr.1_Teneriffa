@@ -286,11 +286,11 @@ body {
   background-image: url(top_hiking_trails/hiking.jpg);
 }
 .slides li:nth-child(2) span {
-  background-image: url(top_hiking_trails/hiking_2.png);
+  background-image: url(top_hiking_trails/hiking_2.jpg);
   animation-delay: 5s;
 }
 .slides li:nth-child(3) span {
-  background-image: url(top_hiking_trails/hiking_3.png);
+  background-image: url(top_hiking_trails/hiking_3.jpg);
   animation-delay: 10s;
 }
 .slides li:nth-child(4) span {
@@ -298,7 +298,7 @@ body {
   animation-delay: 15s;
 }
 .slides li:nth-child(5) span {
-  background-image: url(top_hiking_trails/hiking_5.png);
+  background-image: url(top_hiking_trails/hiking_5.jpg);
   animation-delay: 20s;
 }
 .slides li:nth-child(6) span {

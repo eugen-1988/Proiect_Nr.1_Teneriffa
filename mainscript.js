@@ -27,14 +27,18 @@ window.addEventListener("scroll", () => {
   // Wenn gescrollt wird:
   navbar.classList.toggle("scrolled", window.scrollY > 50); // Fügt Klasse "scrolled" hinzu, wenn Scrollposition über 50px ist
 });
+// ➤ Wenn der Benutzer mehr als 50 Pixel nach unten gescrollt hat,
+//    wird die Klasse "scrolled" zur Navigationsleiste hinzugefügt.
+// ➤ Falls nicht, wird sie entfernt.
+// ➤ Diese Klasse kann z. B. verwendet werden, um die Hintergrundfarbe der Navbar beim Scrollen zu ändern.
 
 // =======>>>>         Theme Switch         <<<<<========== //
 
 const faqLink = document.getElementById("faq-link"); // Holt das Element mit der ID "faq-link"
 faqLink?.addEventListener("click", (e) => {
-  // Falls vorhanden: Beim Klick wird
-  e.preventDefault(); // Der Standard-Link-Verhalten verhindert
-  document.body.classList.toggle("alternate-theme"); // Wechselt die Klasse "alternate-theme" auf dem <body>
+  // ➤ Wenn das Element existiert, wird bei Klick folgendes ausgeführt:
+  e.preventDefault(); // ➤ Verhindert die Standardaktion des Links, z. B. dass eine Seite neu geladen wird
+  document.body.classList.toggle("alternate-theme"); // ➤ Wechselt das Website-Theme, indem die CSS-Klasse "alternate-theme" auf dem <body> hinzugefügt oder entfernt wird
   localStorage.setItem(
     // Speichert den aktuellen Zustand im lokalen Speicher
     "altTheme",

@@ -286,7 +286,7 @@ body {
   background-image: url(top_wiewpoints/wiewpoint.jpg);
 }
 .slides li:nth-child(2) span {
-  background-image: url(top_wiewpoints/wiewpoint_1.webp);
+  background-image: url(top_wiewpoints/wiewpoint_1.jpg);
   animation-delay: 5s;
 }
 .slides li:nth-child(3) span {
@@ -298,7 +298,7 @@ body {
   animation-delay: 15s;
 }
 .slides li:nth-child(5) span {
-  background-image: url(top_wiewpoints/wiewpoint_4.webp);
+  background-image: url(top_wiewpoints/wiewpoint_4.jpg);
   animation-delay: 20s;
 }
 .slides li:nth-child(6) span {

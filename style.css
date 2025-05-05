@@ -283,26 +283,26 @@ body {
   animation: animate 25s linear infinite 0s;
 }
 .slides li:nth-child(1) span {
-  background-image: url(Img/a1.jpg.jpg);
+  background-image: url(Img/a1.jpg);
 }
 .slides li:nth-child(2) span {
-  background-image: url(Img/a2.jpg.jpg);
+  background-image: url(Img/a2.jpg);
   animation-delay: 5s;
 }
 .slides li:nth-child(3) span {
-  background-image: url(Img/a3.jpg.jpg);
+  background-image: url(Img/a3.jpg);
   animation-delay: 10s;
 }
 .slides li:nth-child(4) span {
-  background-image: url(Img/a4.jpg.png);
+  background-image: url(Img/a4.jpg);
   animation-delay: 15s;
 }
 .slides li:nth-child(5) span {
-  background-image: url(Img/a5.jpg.jpg);
+  background-image: url(Img/a5.jpg);
   animation-delay: 20s;
 }
 .slides li:nth-child(6) span {
-  background-image: url(Img/a6.jpg.jpg);
+  background-image: url(Img/a6.jpg);
   animation-delay: 25s;
 }
 

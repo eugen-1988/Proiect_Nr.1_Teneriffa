@@ -290,7 +290,7 @@ body {
   animation-delay: 5s;
 }
 .slides li:nth-child(3) span {
-  background-image: url(top_places/places_3.webp);
+  background-image: url(top_places/places_3.jpg);
   animation-delay: 10s;
 }
 .slides li:nth-child(4) span {
@@ -298,7 +298,7 @@ body {
   animation-delay: 15s;
 }
 .slides li:nth-child(5) span {
-  background-image: url(top_places/places_5.webp);
+  background-image: url(top_places/places_5.jpg);
   animation-delay: 20s;
 }
 .slides li:nth-child(6) span {

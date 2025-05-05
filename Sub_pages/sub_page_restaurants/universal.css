@@ -294,7 +294,7 @@ body {
   animation-delay: 10s;
 }
 .slides li:nth-child(4) span {
-  background-image: url(top_restaurants/restaurants_3.webp);
+  background-image: url(top_restaurants/restaurants_3.jpg);
   animation-delay: 15s;
 }
 .slides li:nth-child(5) span {
