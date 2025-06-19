@@ -706,57 +706,57 @@ body {
 }
 @media (max-width: 768px) {
   .sort-controls {
-    gap: 1rem; /* Reduce gap between items */
-    align-items: center; /* Center items */
+    gap: 1rem;
+    align-items: center;
   }
 
   #sortButton {
-    font-size: 0.8rem; /* Slightly larger text */
+    font-size: 0.8rem;
   }
 
   #filterDropdownButton {
-    font-size: 0.8rem; /* Slightly larger text */
+    font-size: 0.8rem;
   }
 }
 
 /* For very small screens (mobile devices) */
 @media (max-width: 480px) {
   .sort-controls {
-    gap: 0.5rem; /* Reduce the gap further */
+    gap: 0.5rem;
   }
 
   #sortButton,
   #filterDropdownButton {
-    font-size: 0.7rem; /* Make font size smaller */
-    padding: 0.6rem 0.6rem 1rem; /* Adjust padding for smaller buttons */
+    font-size: 0.7rem;
+    padding: 0.6rem 0.6rem 1rem;
   }
 
   .dropdown-content-filter {
-    min-width: 150px; /* Adjust dropdown width */
+    min-width: 150px;
   }
 
   .dropdown-content-filter a {
-    padding: 8px 40px; /* Adjust padding for smaller screens */
+    padding: 8px 40px;
   }
 }
 @media (max-width: 380px) {
   .sort-controls {
-    gap: 0.5rem; /* Reduce the gap further */
+    gap: 0.5rem;
   }
 
   #sortButton,
   #filterDropdownButton {
-    font-size: 0.5rem; /* Make font size smaller */
-    padding: 0.5rem 0.5rem 1rem; /* Adjust padding for smaller buttons */
+    font-size: 0.5rem;
+    padding: 0.5rem 0.5rem 1rem;
   }
 
   .dropdown-content-filter {
-    min-width: 150px; /* Adjust dropdown width */
+    min-width: 150px;
   }
 
   .dropdown-content-filter a {
     font-size: 0.6rem;
-    padding: 8px 60px; /* Adjust padding for smaller screens */
+    padding: 8px 60px;
   }
 }
 /* ////////// ===>>          Footer         <<=== \\\\\\\\\\ */
@@ -768,12 +768,10 @@ body {
   color: #fff;
 }
 
-/* Make height flexible */
 .site-footer {
   height: auto;
 }
 
-/* Footer Logo */
 .footer-logo {
   font-size: 1.8rem;
   font-weight: bold;
@@ -783,7 +781,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Grid container stays the same */
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -793,7 +790,6 @@ body {
   padding-left: 4rem;
 }
 
-/* Footer Section Styles */
 .footer-section h2,
 .footer-section h3 {
   margin-bottom: 1rem;
@@ -862,16 +858,14 @@ body {
 
 /* ////////// ===>>        ThemeSwitch        <<=== \\\\\\\\\\ */
 .alternate-theme {
-  /* Main background/text (adjust colors as needed) */
-  --primary-bg: #160303be; /* Deep burgundy */
+  --primary-bg: #160303be;
   --secondary-bg: #fff;
-  --primary-text: #fa7705; /* Cream */
-  --accent: #aed167; /* Soft green */
-  --text-xl: 1.25rem; /* 20px */
+  --primary-text: #fa7705;
+  --accent: #aed167;
+  --text-xl: 1.25rem;
   --color: #0077cc;
 }
 
-/* Navbar */
 .alternate-theme .color {
   color: var(--color) !important;
 }
@@ -890,7 +884,7 @@ body {
 .alternate-theme .thema {
   background: var(--accent) !important;
 }
-/* Cards */
+
 .alternate-theme .card-link {
   background: rgba(22, 3, 3, 0.9) !important;
 }
@@ -900,7 +894,6 @@ body {
   border: 1px solid var(--accent) !important;
 }
 
-/* Footer */
 .alternate-theme .site-footer {
   background: rgba(22, 3, 3, 0.9) !important;
 }

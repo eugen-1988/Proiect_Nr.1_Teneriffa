@@ -121,8 +121,8 @@ body {
 
 /* ////////// ===>>       Scrolled Navbar        <<=== \\\\\\\\\\ */
 .navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
-  backdrop-filter: blur(8px); /* Optional: smooth glassy look */
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
   transition: background-color 0.3s ease;
 }
 /* ////////// ===>>       Scrolled Navbar       <<=== \\\\\\\\\\ */
@@ -201,16 +201,15 @@ body {
 .dropbtn:hover .dropbtn-main {
   color: #202020;
 }
-/* Current hover (only affects container) */
+
 .dropbtn:hover {
   background-color: #fff;
   color: #202020;
   border-radius: 5px;
 }
 
-/* Add this to ensure text color changes on hover */
 .dropbtn:hover span {
-  color: #202020; /* Force text color change on hover */
+  color: #202020;
 }
 /* ////////// ===>>        Drop Down       <<=== \\\\\\\\\\ */
 
@@ -456,7 +455,7 @@ body {
 
 .container {
   min-height: 100vh;
-  background: rgba(0, 0, 0, 0.3); /* // ===>>   Blur Font   <<=== \\\ */
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -690,12 +689,10 @@ body {
   color: #fff;
 }
 
-/* Make height flexible */
 .site-footer {
   height: auto;
 }
 
-/* Footer Logo */
 .footer-logo {
   font-size: 1.8rem;
   font-weight: bold;
@@ -705,7 +702,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Grid container stays the same */
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -715,7 +711,6 @@ body {
   padding-left: 4rem;
 }
 
-/* Footer Section Styles */
 .footer-section h2,
 .footer-section h3 {
   margin-bottom: 1rem;
@@ -769,15 +764,13 @@ body {
 
 /* ////////// ===>>        ThemeSwitch        <<=== \\\\\\\\\\ */
 .alternate-theme {
-  /* Main background/text (adjust colors as needed) */
-  --primary-bg: #160303be; /* Deep burgundy */
+  --primary-bg: #160303be;
   --secondary-bg: #fff;
-  --primary-text: #fa7705; /* Cream */
-  --accent: #aed167; /* Soft green */
-  --text-xl: 1.25rem; /* 20px */
+  --primary-text: #fa7705;
+  --accent: #aed167;
+  --text-xl: 1.25rem;
 }
 
-/* Navbar */
 .alternate-theme .navbar.scrolled {
   background: rgba(22, 3, 3, 0.9) !important;
 }
@@ -793,7 +786,7 @@ body {
 .alternate-theme .thema {
   background: var(--accent) !important;
 }
-/* Cards */
+
 .alternate-theme .card-link {
   background: rgba(22, 3, 3, 0.9) !important;
 }
@@ -815,7 +808,7 @@ body {
 .alternate-theme .swiper-pagination-bullet {
   background-color: var(--accent) !important;
 }
-/* Testimonials */
+
 .alternate-theme .highlight-card {
   background: rgba(22, 3, 3, 0.9) !important;
   border-left: 4px solid var(--accent) !important;
@@ -831,7 +824,7 @@ body {
 .alternate-theme .highlight-card p {
   color: var(--accent) !important;
 }
-/* Footer */
+
 .alternate-theme .site-footer {
   background: rgba(22, 3, 3, 0.9) !important;
 }
